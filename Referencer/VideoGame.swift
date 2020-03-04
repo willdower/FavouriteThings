@@ -16,4 +16,12 @@ class VideoGame {
     var releaseDate: Date? //Optional, release date may be unknown
     var userRating: Int? //Optional, user rating may be unknown, Int out of 100
     var criticRating: Int? //Optional, criticv rating may be unknown, Int out of 100
+    
+    init(title: String, developer: String?, releaseDate: Date?, userRating: Int?, criticRating: Int?) {
+        self.title = title
+        self.developer = developer
+        self.releaseDate = releaseDate
+        self.userRating = userRating
+        self.criticRating = criticRating
+    }
 }
