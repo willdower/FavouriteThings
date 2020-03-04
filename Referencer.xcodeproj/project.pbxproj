@@ -15,6 +15,7 @@
 		3D592E8E240F29C500AAF8CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D592E8C240F29C500AAF8CD /* LaunchScreen.storyboard */; };
 		3D592E99240F29C500AAF8CD /* ReferencerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592E98240F29C500AAF8CD /* ReferencerTests.swift */; };
 		3D592EA4240F29C500AAF8CD /* ReferencerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EA3240F29C500AAF8CD /* ReferencerUITests.swift */; };
+		3D592EB2240F3A8A00AAF8CD /* VideoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EB1240F3A8A00AAF8CD /* VideoGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3D592E9F240F29C500AAF8CD /* ReferencerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReferencerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D592EA3240F29C500AAF8CD /* ReferencerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencerUITests.swift; sourceTree = "<group>"; };
 		3D592EA5240F29C500AAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D592EB1240F3A8A00AAF8CD /* VideoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				3D592E8C240F29C500AAF8CD /* LaunchScreen.storyboard */,
 				3D592E8F240F29C500AAF8CD /* Info.plist */,
 				3D592E89240F29C500AAF8CD /* Preview Content */,
+				3D592EB1240F3A8A00AAF8CD /* VideoGame.swift */,
 			);
 			path = Referencer;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				3D592E82240F29C400AAF8CD /* AppDelegate.swift in Sources */,
 				3D592E84240F29C400AAF8CD /* SceneDelegate.swift in Sources */,
 				3D592E86240F29C400AAF8CD /* ContentView.swift in Sources */,
+				3D592EB2240F3A8A00AAF8CD /* VideoGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
