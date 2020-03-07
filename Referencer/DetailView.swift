@@ -19,36 +19,36 @@ struct DetailView: View {
         var criticRatingText: Text
         let df = DateFormatter()
         
-        df.dateFormat = "dd MM yyyy"
+        df.dateFormat = "dd/MM/yyyy"
         
         if let releaseDateExists = game.releaseDate {
-            releaseDateText = Text("\(df.string(from: releaseDateExists))\n")
+            releaseDateText = Text("\(df.string(from: releaseDateExists))")
         }
         else {
-            releaseDateText = Text("Unknown\n")
+            releaseDateText = Text("Unknown")
         }
         
         if let userRatingExists = game.userRating {
-            userRatingText = Text("\(userRatingExists)\n")
+            userRatingText = Text("\(userRatingExists)")
         }
         else {
-            userRatingText = Text("Unknown\n")
+            userRatingText = Text("Unknown")
         }
         
         if let criticRatingExists = game.criticRating {
-            criticRatingText = Text("\(criticRatingExists)\n")
+            criticRatingText = Text("\(criticRatingExists)")
         }
         else {
-            criticRatingText = Text("Unknown\n")
+            criticRatingText = Text("Unknown")
         }
         return VStack {
             Text("Title: ")
                 .bold()
-            Text("\(game.title)\n")
+            Text("\(game.title)")
             
             Text("Developer: ")
                 .bold()
-            Text("\(game.developer ?? "Unknown")\n")
+            Text("\(game.developer ?? "Unknown")")
             
             Text("Release Date: ")
                 .bold()
