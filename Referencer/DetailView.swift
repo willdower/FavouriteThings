@@ -9,11 +9,11 @@
 import Foundation
 import SwiftUI
 
-class DetailView: View {
+final class DetailView: View {
     let game: VideoGame
     
     var body: some View {
-        
+        Text("Hello World!")
     }
     
     init(game: VideoGame) {
