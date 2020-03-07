@@ -29,7 +29,8 @@ struct DetailView: View {
         }
         
         if let userRatingExists = game.userRating {
-            userRatingText = Text("\(userRatingExists)")
+            
+            userRatingText = Text(String(format: "%.1f", userRatingExists))
         }
         else {
             userRatingText = Text("Unknown")
@@ -42,35 +43,38 @@ struct DetailView: View {
             criticRatingText = Text("Unknown")
         }
         return HStack {
-                VStack(alignment: .leading) {
-                    VStack(alignment: .leading) {
-                        Text(game.title)
-                            .font(.largeTitle)
-                        
-                        Text(game.developer ?? "Unknown")
-                            .font(.caption)
-                        Spacer()
-                            .frame(height: 30)
-                    }
-                    HStack {
-                        VStack(alignment: .trailing) {
-                            Text("Release Date: ")
-                                .bold()
-                            
-                            Text("User Rating: ")
-                                .bold()
-                                
-                            Text("Critic Rating: ")
-                                .bold()
-                        }
-                        VStack(alignment: .leading) {
-                            releaseDateText
-                            userRatingText
-                            criticRatingText
-                        }
-                    }
-            }
             Spacer()
+            VStack(alignment: .center) {
+                game.boxArt
+                    .shadow(radius: 10)
+                VStack(alignment: .center) {
+                    Text(game.title)
+                        .font(.largeTitle)
+                    
+                    Text(game.developer ?? "Unknown")
+                        .font(.caption)
+                    Spacer()
+                        .frame(height: 15)
+                }
+                HStack {
+                    VStack(alignment: .trailing) {
+                        Text("Release Date: ")
+                            .bold()
+                        
+                        Text("User Rating: ")
+                            .bold()
+                            
+                        Text("Critic Rating: ")
+                            .bold()
+                    }
+                    VStack(alignment: .leading) {
+                        releaseDateText
+                        userRatingText
+                        criticRatingText
+                    }
+                }
+        }
+        Spacer()
         }
     }
 }
