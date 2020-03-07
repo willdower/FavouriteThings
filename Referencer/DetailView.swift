@@ -41,26 +41,36 @@ struct DetailView: View {
         else {
             criticRatingText = Text("Unknown")
         }
-        return VStack {
-            Text("Title: ")
-                .bold()
-            Text("\(game.title)")
-            
-            Text("Developer: ")
-                .bold()
-            Text("\(game.developer ?? "Unknown")")
-            
-            Text("Release Date: ")
-                .bold()
-            releaseDateText
-            
-            Text("User Rating: ")
-                .bold()
-            userRatingText
-            
-            Text("Critic Rating: ")
-                .bold()
-            criticRatingText
+        return HStack {
+                VStack(alignment: .leading) {
+                    VStack(alignment: .leading) {
+                        Text(game.title)
+                            .font(.largeTitle)
+                        
+                        Text(game.developer ?? "Unknown")
+                            .font(.caption)
+                        Spacer()
+                            .frame(height: 30)
+                    }
+                    HStack {
+                        VStack(alignment: .trailing) {
+                            Text("Release Date: ")
+                                .bold()
+                            
+                            Text("User Rating: ")
+                                .bold()
+                                
+                            Text("Critic Rating: ")
+                                .bold()
+                        }
+                        VStack(alignment: .leading) {
+                            releaseDateText
+                            userRatingText
+                            criticRatingText
+                        }
+                    }
+            }
+            Spacer()
         }
     }
 }
