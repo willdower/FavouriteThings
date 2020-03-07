@@ -13,44 +13,54 @@ struct DetailView: View {
     let game: VideoGame
     
     var body: some View {
-        
-        Text("Title: ")
-            .bold()
-        Text("\(game.title)\n")
-        
-        Text("Developer: ")
-            .bold()
-        Text("\(game.developer ?? "Unknown")\n")
-        
-        Text("Release Dater: ")
-            .bold()
+        //These are vars as future versions may allow editing on variables in app (via an edit button)
+        var userRatingText: Text
+        var releaseDateText: Text
+        var criticRatingText: Text
         let df = DateFormatter()
+        
         df.dateFormat = "dd MM yyyy"
+        
         if let releaseDateExists = game.releaseDate {
-            Text("\(df.string(from: releaseDateExists))\n")
+            releaseDateText = Text("\(df.string(from: releaseDateExists))\n")
         }
         else {
-            Text("Unknown\n")
+            releaseDateText = Text("Unknown\n")
         }
         
-        Text("User Rating: ")
-            .bold()
         if let userRatingExists = game.userRating {
-            Text("\(userRatingExists)\n")
+            userRatingText = Text("\(userRatingExists)\n")
         }
         else {
-            Text("Unknown\n")
+            userRatingText = Text("Unknown\n")
         }
         
-        Text("Critic Rating: ")
-            .bold()
         if let criticRatingExists = game.criticRating {
-            Text("\(criticRatingExists)\n")
+            criticRatingText = Text("\(criticRatingExists)\n")
         }
         else {
-            Text("Unknown\n")
+            criticRatingText = Text("Unknown\n")
         }
-        
-        return Text(game.title)
+        return VStack {
+            Text("Title: ")
+                .bold()
+            Text("\(game.title)\n")
+            
+            Text("Developer: ")
+                .bold()
+            Text("\(game.developer ?? "Unknown")\n")
+            
+            Text("Release Date: ")
+                .bold()
+            releaseDateText
+            
+            Text("User Rating: ")
+                .bold()
+            userRatingText
+            
+            Text("Critic Rating: ")
+                .bold()
+            criticRatingText
+        }
     }
 }
