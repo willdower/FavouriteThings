@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import SwiftUI
 
-class DetailView {
+class DetailView: View {
     let game: VideoGame
+    
+    var body: some View {
+        
+    }
     
     init(game: VideoGame) {
         self.game = game

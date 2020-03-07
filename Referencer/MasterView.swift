@@ -11,7 +11,7 @@ import SwiftUI
 struct MasterView: View {
     var game: VideoGame
     var body: some View {
-        Text("Hello, World!")
+        DetailView(game: game)
     }
 }
 
