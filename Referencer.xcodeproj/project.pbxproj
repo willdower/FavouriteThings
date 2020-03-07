@@ -444,6 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Referencer/Preview Content\"";
+				DEVELOPMENT_TEAM = DF3P78J78N;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Referencer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -463,6 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Referencer/Preview Content\"";
+				DEVELOPMENT_TEAM = DF3P78J78N;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Referencer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

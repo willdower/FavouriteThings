@@ -27,10 +27,16 @@ class VideoGame {
         self.criticRating = criticRating
         
         var dateComponents = DateComponents()
-        dateComponents.year = releaseYear
-        dateComponents.month = releaseMonth
-        dateComponents.day = releaseDay
         
-        self.releaseDate = Calendar.current.date(from: dateComponents)
+        if releaseDay == nil || releaseMonth == nil || releaseYear == nil {
+            self.releaseDate = nil
+        }
+        else {
+            dateComponents.year = releaseYear
+            dateComponents.month = releaseMonth
+            dateComponents.day = releaseDay
+            
+            self.releaseDate = Calendar.current.date(from: dateComponents)
+        }
     }
 }
