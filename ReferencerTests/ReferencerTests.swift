@@ -20,8 +20,56 @@ class ReferencerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testVideoGame() {
-        //This function tests all objects are assigned properly during VideoGame init()
+    func testTitle() {
+        //This function tests the title is assigned properly during VideoGame init()
+        let title = "Minecraft"
+        let imageName = "minecraftArt"
+        let developer = "Mojang"
+        let releaseYear = 2009
+        let releaseMonth = 5
+        let releaseDay = 17
+        let userRating: Float = 7.7
+        let criticRating = 93
+        
+        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
+        
+        XCTAssertEqual(game.title, title)
+    }
+    
+    func testBoxArt() {
+        //This function tests the image is assigned properly during VideoGame init() and is created from the given string properly
+        let title = "Minecraft"
+        let imageName = "minecraftArt"
+        let developer = "Mojang"
+        let releaseYear = 2009
+        let releaseMonth = 5
+        let releaseDay = 17
+        let userRating: Float = 7.7
+        let criticRating = 93
+        
+        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
+        
+        XCTAssertEqual(game.boxArt, Image(imageName))
+    }
+    
+    func testDeveloper() {
+        //This function tests the developer is assigned properly during VideoGame init()
+        let title = "Minecraft"
+        let imageName = "minecraftArt"
+        let developer = "Mojang"
+        let releaseYear = 2009
+        let releaseMonth = 5
+        let releaseDay = 17
+        let userRating: Float = 7.7
+        let criticRating = 93
+        
+        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
+        
+        XCTAssertEqual(game.developer, developer)
+    }
+    
+    func testReleaseDate() {
+        //This function tests the release date is assigned properly during VideoGame init() and is properly generated from its components
         let title = "Minecraft"
         let imageName = "minecraftArt"
         let developer = "Mojang"
@@ -40,11 +88,38 @@ class ReferencerTests: XCTestCase {
         
         let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
         
-        XCTAssertEqual(game.title, title)
-        XCTAssertEqual(game.boxArt, Image(imageName))
-        XCTAssertEqual(game.developer, developer)
         XCTAssertEqual(game.releaseDate, releaseDate)
+    }
+    
+    func testUserRating() {
+        //This function tests the user rating is assigned properly during VideoGame init()
+        let title = "Minecraft"
+        let imageName = "minecraftArt"
+        let developer = "Mojang"
+        let releaseYear = 2009
+        let releaseMonth = 5
+        let releaseDay = 17
+        let userRating: Float = 7.7
+        let criticRating = 93
+        
+        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
+        
         XCTAssertEqual(game.userRating, userRating)
+    }
+    
+    func testCriticRating() {
+        //This function tests the critic rating is assigned properly during VideoGame init()
+        let title = "Minecraft"
+        let imageName = "minecraftArt"
+        let developer = "Mojang"
+        let releaseYear = 2009
+        let releaseMonth = 5
+        let releaseDay = 17
+        let userRating: Float = 7.7
+        let criticRating = 93
+        
+        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
+        
         XCTAssertEqual(game.criticRating, criticRating)
     }
     
