@@ -14,10 +14,10 @@ class VideoGame {
     var title: String
     var developer: String? //Optional, developer may be unknown
     var releaseDate: Date? //Optional, release date may be unknown
-    var userRating: Int? //Optional, user rating may be unknown, Int out of 100
+    var userRating: Float? //Optional, user rating may be unknown, Int out of 100
     var criticRating: Int? //Optional, criticv rating may be unknown, Int out of 100
     
-    init(title: String, developer: String?, releaseYear: Int?, releaseMonth: Int?, releaseDay: Int?, userRating: Int?, criticRating: Int?) {
+    init(title: String, developer: String?, releaseYear: Int?, releaseMonth: Int?, releaseDay: Int?, userRating: Float?, criticRating: Int?) {
         self.title = title
         self.developer = developer
         self.userRating = userRating
