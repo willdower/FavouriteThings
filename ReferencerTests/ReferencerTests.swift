@@ -11,9 +11,34 @@ import SwiftUI
 @testable import Referencer
 
 class ReferencerTests: XCTestCase {
+    
+    private var title: String!
+    private var imageName: String!
+    private var developer: String!
+    private var releaseYear: Int!
+    private var releaseMonth: Int!
+    private var releaseDay: Int!
+    private var userRating: Float!
+    private var criticRating: Int!
+    private var game: VideoGame!
+    private var gameViewModel: VideoGameViewModel!
 
     override func setUp() {
+        super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.title = "Minecraft"
+        self.imageName = "minecraftArt"
+        self.developer = "Mojang"
+        self.releaseYear = 2009
+        self.releaseMonth = 5
+        self.releaseDay = 17
+        self.userRating = 7.7
+        self.criticRating = 93
+        
+        //let game = VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93)
+        
+        self.game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
+        self.gameViewModel = VideoGameViewModel(game: game)
     }
 
     override func tearDown() {
@@ -22,63 +47,21 @@ class ReferencerTests: XCTestCase {
 
     func testTitle() {
         //This function tests the title is assigned properly during VideoGame init()
-        let title = "Minecraft"
-        let imageName = "minecraftArt"
-        let developer = "Mojang"
-        let releaseYear = 2009
-        let releaseMonth = 5
-        let releaseDay = 17
-        let userRating: Float = 7.7
-        let criticRating = 93
-        
-        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
-        
         XCTAssertEqual(game.title, title)
     }
     
     func testBoxArt() {
         //This function tests the image is assigned properly during VideoGame init() and is created from the given string properly
-        let title = "Minecraft"
-        let imageName = "minecraftArt"
-        let developer = "Mojang"
-        let releaseYear = 2009
-        let releaseMonth = 5
-        let releaseDay = 17
-        let userRating: Float = 7.7
-        let criticRating = 93
-        
-        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
-        
         XCTAssertEqual(game.boxArt, Image(imageName))
     }
     
     func testDeveloper() {
         //This function tests the developer is assigned properly during VideoGame init()
-        let title = "Minecraft"
-        let imageName = "minecraftArt"
-        let developer = "Mojang"
-        let releaseYear = 2009
-        let releaseMonth = 5
-        let releaseDay = 17
-        let userRating: Float = 7.7
-        let criticRating = 93
-        
-        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
-        
         XCTAssertEqual(game.developer, developer)
     }
     
     func testReleaseDate() {
         //This function tests the release date is assigned properly during VideoGame init() and is properly generated from its components
-        let title = "Minecraft"
-        let imageName = "minecraftArt"
-        let developer = "Mojang"
-        let releaseYear = 2009
-        let releaseMonth = 5
-        let releaseDay = 17
-        let userRating: Float = 7.7
-        let criticRating = 93
-        
         var dc = DateComponents()
         dc.year = releaseYear
         dc.month = releaseMonth
@@ -86,44 +69,20 @@ class ReferencerTests: XCTestCase {
         
         let releaseDate = Calendar.current.date(from: dc)
         
-        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
-        
         XCTAssertEqual(game.releaseDate, releaseDate)
     }
     
     func testUserRating() {
         //This function tests the user rating is assigned properly during VideoGame init()
-        let title = "Minecraft"
-        let imageName = "minecraftArt"
-        let developer = "Mojang"
-        let releaseYear = 2009
-        let releaseMonth = 5
-        let releaseDay = 17
-        let userRating: Float = 7.7
-        let criticRating = 93
-        
-        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
-        
         XCTAssertEqual(game.userRating, userRating)
     }
     
     func testCriticRating() {
         //This function tests the critic rating is assigned properly during VideoGame init()
-        let title = "Minecraft"
-        let imageName = "minecraftArt"
-        let developer = "Mojang"
-        let releaseYear = 2009
-        let releaseMonth = 5
-        let releaseDay = 17
-        let userRating: Float = 7.7
-        let criticRating = 93
-        
-        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
-        
         XCTAssertEqual(game.criticRating, criticRating)
     }
     
-    func testNilValues() {
+    func testNilValuesAtModel() {
         let title = "Minecraft"
         let imageName: String? = nil
         let developer: String? = nil
@@ -135,10 +94,33 @@ class ReferencerTests: XCTestCase {
         
         let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
         
-        XCTAssertEqual(game.boxArt, Image("placeholderArt"))
+        XCTAssertNotNil(game.title)
         
-        //No other tests necessary, as nils handled on view level
+        //No other tests necessary, as nils handled on viewmodel level
         //If test successfully completes, nils handled properly
+    }
+    
+    func testNilValuesAtViewModel() {
+        let title = "Minecraft"
+        let imageName: String? = nil
+        let developer: String? = nil
+        let releaseYear: Int? = nil
+        let releaseMonth: Int? = nil
+        let releaseDay: Int? = nil
+        let userRating: Float? = nil
+        let criticRating: Int? = nil
+        
+        let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
+        
+        let gameViewModel = VideoGameViewModel(game: game)
+        
+        XCTAssertNotNil(gameViewModel.title)
+        
+        XCTAssertEqual(gameViewModel.boxArt, Image("placeholderArt"))
+        XCTAssertEqual(gameViewModel.developerString, "Unknown")
+        XCTAssertEqual(gameViewModel.releaseDateString, "Unknown")
+        XCTAssertEqual(gameViewModel.userRatingString, "Unknown")
+        XCTAssertEqual(gameViewModel.criticRatingString, "Unknown")
     }
 
     func testPerformanceExample() {
