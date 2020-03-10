@@ -10,48 +10,19 @@ import Foundation
 import SwiftUI
 
 struct DetailView: View {
-    let game: VideoGame
+    let gameViewModel: VideoGameViewModel
     
     var body: some View {
-        //These are vars as future versions may allow editing on variables in app (via an edit button)
-        var userRatingText: Text
-        var releaseDateText: Text
-        var criticRatingText: Text
-        let df = DateFormatter()
-        
-        df.dateFormat = "dd/MM/yyyy"
-        
-        if let releaseDateExists = game.releaseDate {
-            releaseDateText = Text("\(df.string(from: releaseDateExists))")
-        }
-        else {
-            releaseDateText = Text("Unknown")
-        }
-        
-        if let userRatingExists = game.userRating {
-            
-            userRatingText = Text(String(format: "%.1f", userRatingExists))
-        }
-        else {
-            userRatingText = Text("Unknown")
-        }
-        
-        if let criticRatingExists = game.criticRating {
-            criticRatingText = Text("\(criticRatingExists)")
-        }
-        else {
-            criticRatingText = Text("Unknown")
-        }
         return HStack {
             Spacer()
             VStack(alignment: .center) {
-                game.boxArt
+                gameViewModel.boxArt
                     .shadow(radius: 10)
                 VStack(alignment: .center) {
-                    Text(game.title)
+                    Text(gameViewModel.title)
                         .font(.largeTitle)
                     
-                    Text(game.developer ?? "Unknown")
+                    Text(gameViewModel.developerString)
                         .font(.caption)
                     Spacer()
                         .frame(height: 15)
@@ -68,9 +39,9 @@ struct DetailView: View {
                             .bold()
                     }
                     VStack(alignment: .leading) {
-                        releaseDateText
-                        userRatingText
-                        criticRatingText
+                        Text(gameViewModel.releaseDateString)
+                        Text(gameViewModel.userRatingString)
+                        Text(gameViewModel.criticRatingString)
                     }
                 }
         }

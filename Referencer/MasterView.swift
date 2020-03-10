@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct MasterView: View {
-    var game: VideoGame
+    var gameViewModel: VideoGameViewModel
     var body: some View {
-        DetailView(game: game)
+        DetailView(gameViewModel: gameViewModel)
     }
 }
 
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
-        MasterView(game: VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93))
+        MasterView(gameViewModel: VideoGameViewModel(game: VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93)))
     }
 }
