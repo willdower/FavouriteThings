@@ -12,8 +12,10 @@ class GameList {
     var games: [VideoGame] {
         didSet {
             self.gameNumber = self.games.count
+            self.viewModels.append(VideoGameViewModel(game: self.games.last!))
         }
     }
+    var viewModels: [VideoGameViewModel]
     var listTitle: String
     var gameNumber: Int
     
@@ -21,5 +23,9 @@ class GameList {
         self.gameNumber = games.count
         self.games = games
         self.listTitle = listTitle
+        self.viewModels = []
+        for game in games {
+            self.viewModels.append(VideoGameViewModel(game: game))
+        }
     }
 }

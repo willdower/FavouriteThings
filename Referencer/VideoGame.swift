@@ -11,7 +11,8 @@ import SwiftUI
 
 //Video game class to store details of each video game stored in the app
 
-class VideoGame {
+class VideoGame: Identifiable {
+    let id = UUID()
     var title: String
     var boxArt: Image? //Optional, no image may be known
     var developer: String? //Optional, developer may be unknown
@@ -39,7 +40,7 @@ class VideoGame {
         }
         
         if let imageNameExists = imageName {
-            self.boxArt = Image(imageNameExists)
+            self.boxArt = Image(imageNameExists).resizable()
         }
         else {
             self.boxArt = nil

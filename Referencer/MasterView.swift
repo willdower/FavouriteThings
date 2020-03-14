@@ -8,18 +8,24 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct MasterView: View {
     var gamesList: GameList
+    
     var body: some View {
-        List {
-            ForEach(gamesList.games, id: \.title) { game in
-            NavigationLink(destination: DetailView(gameViewModel: VideoGameViewModel(game: game))) {
-                Text("Test")
+        NavigationView {
+            List {
+                ForEach(gamesList.viewModels, id: \.id) { game in
+                    NavigationLink(destination: DetailView(gameViewModel: game)) {
+                        game.boxArt
+                            .frame(width: 36, height: 54)
+                        Text(game.title)
+                        Text(game.developerString)
+                        }
                 }
             }
+            .navigationBarTitle(gamesList.listTitle)
         }
+        
     }
 }
 

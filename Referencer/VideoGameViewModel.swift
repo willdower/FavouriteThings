@@ -9,7 +9,8 @@
 import Foundation
 import SwiftUI
 
-class VideoGameViewModel {
+class VideoGameViewModel: Identifiable {
+    let id = UUID()
     var title: String
     var boxArt: Image
     var developerString: String
