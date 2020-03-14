@@ -18,6 +18,7 @@ struct DetailView: View {
             VStack(alignment: .center) {
                 gameViewModel.boxArt
                     .shadow(radius: 10)
+                    .frame(width: 360, height: 540)
                 VStack(alignment: .center) {
                     Text(gameViewModel.title)
                         .font(.largeTitle)
@@ -47,5 +48,11 @@ struct DetailView: View {
         }
         Spacer()
         }
+    }
+}
+
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailView(gameViewModel: VideoGameViewModel(game: VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93)))
     }
 }

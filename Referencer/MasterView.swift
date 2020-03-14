@@ -18,9 +18,14 @@ struct MasterView: View {
                     NavigationLink(destination: DetailView(gameViewModel: game)) {
                         game.boxArt
                             .frame(width: 36, height: 54)
+                            .shadow(radius: 5)
+                        Spacer()
+                            .frame(width: 10)
                         Text(game.title)
                         Spacer()
                         Text(game.developerString)
+                            .font(.caption)
+                            .italic()
                         }
                 }
             }
