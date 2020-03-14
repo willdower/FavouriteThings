@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MasterView.swift
 //  Referencer
 //
 //  Created by William Dower on 4/3/20.
