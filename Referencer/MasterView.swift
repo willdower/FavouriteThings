@@ -14,7 +14,8 @@ struct MasterView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(gamesList.viewModels, id: \.id) { game in
+                ForEach(gamesList.viewModels, id: \.id) { game in //Creates a list item for each game
+                    //Each list item has a thumbnail, title and developer on the far right
                     NavigationLink(destination: DetailView(gameViewModel: game)) {
                         game.boxArt
                             .frame(width: 36, height: 54)

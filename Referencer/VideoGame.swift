@@ -17,8 +17,8 @@ class VideoGame: Identifiable {
     var boxArt: Image? //Optional, no image may be known
     var developer: String? //Optional, developer may be unknown
     var releaseDate: Date? //Optional, release date may be unknown
-    var userRating: Float? //Optional, user rating may be unknown, Int out of 100
-    var criticRating: Int? //Optional, criticv rating may be unknown, Int out of 100
+    var userRating: Float? //Optional, user rating may be unknown, Float out of 10
+    var criticRating: Int? //Optional, critic rating may be unknown, Int out of 100
     
     init(title: String, imageName: String?, developer: String?, releaseYear: Int?, releaseMonth: Int?, releaseDay: Int?, userRating: Float?, criticRating: Int?) {
         self.title = title
@@ -40,7 +40,7 @@ class VideoGame: Identifiable {
         }
         
         if let imageNameExists = imageName {
-            self.boxArt = Image(imageNameExists).resizable()
+            self.boxArt = Image(imageNameExists).resizable() //Resizeable property allows multiple sizes of the same image throughout the app
         }
         else {
             self.boxArt = nil

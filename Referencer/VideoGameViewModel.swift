@@ -10,7 +10,12 @@ import Foundation
 import SwiftUI
 
 class VideoGameViewModel: Identifiable {
-    let id = UUID()
+    
+    //View model used to bridge the gap between model and view
+    //Handles the model's nil values so that the view is passed only valid non-optionals
+    //Also constructs a string to display the date from the Date() object contained within the model
+    
+    let id = UUID() //Unique identity for using in List views
     var title: String
     var boxArt: Image
     var developerString: String
@@ -30,10 +35,10 @@ class VideoGameViewModel: Identifiable {
         
         let df = DateFormatter()
         
-        df.dateFormat = "dd/MM/yyyy"
+        df.dateFormat = "dd/MM/yyyy" //This can be modified per region if necessary
         
         if let releaseDateExists = game.releaseDate {
-            self.releaseDateString = "\(df.string(from: releaseDateExists))"
+            self.releaseDateString = "\(df.string(from: releaseDateExists))" //Uses date format to create string with date
         }
         else {
             self.releaseDateString = "Unknown"
@@ -41,7 +46,7 @@ class VideoGameViewModel: Identifiable {
         
         if let userRatingExists = game.userRating {
             
-            self.userRatingString = String(format: "%.1f", userRatingExists)
+            self.userRatingString = String(format: "%.1f", userRatingExists) //Cut rating Float value to 1 decimal place
         }
         else {
             self.userRatingString = "Unknown"
@@ -58,7 +63,7 @@ class VideoGameViewModel: Identifiable {
             self.boxArt = imageExists
         }
         else {
-            self.boxArt = Image("placeholderArt")
+            self.boxArt = Image("placeholderArt") //Just an empty PS4 box with a ? on it
         }
         
     }

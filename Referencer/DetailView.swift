@@ -12,6 +12,7 @@ import SwiftUI
 struct DetailView: View {
     let gameViewModel: VideoGameViewModel
     
+    //Biggest element is the image, with a title heading, developer subtitle, and the release date, user rating and critic rating all centered at the bottom
     var body: some View {
         return HStack {
             Spacer()
