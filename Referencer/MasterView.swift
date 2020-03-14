@@ -19,6 +19,7 @@ struct MasterView: View {
                         game.boxArt
                             .frame(width: 36, height: 54)
                         Text(game.title)
+                        Spacer()
                         Text(game.developerString)
                         }
                 }
