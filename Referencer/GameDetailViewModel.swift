@@ -1,5 +1,5 @@
 //
-//  VideoGameViewModel.swift
+//  GameDetailViewModel.swift
 //  Referencer
 //
 //  Created by William Dower on 10/3/20.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-class VideoGameViewModel: Identifiable {
+class GameDetailViewModel: Identifiable {
     
     //View model used to bridge the gap between model and view
     //Handles the model's nil values so that the view is passed only valid non-optionals
@@ -63,7 +63,7 @@ class VideoGameViewModel: Identifiable {
             self.boxArt = imageExists
         }
         else {
-            self.boxArt = Image("placeholderArt") //Just an empty PS4 box with a ? on it
+            self.boxArt = Image("placeholderArt") //Just an empty PS4 game box with a ? on it
         }
         
     }

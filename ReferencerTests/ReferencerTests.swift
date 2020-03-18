@@ -21,7 +21,7 @@ class ReferencerTests: XCTestCase {
     private var userRating: Float!
     private var criticRating: Int!
     private var game: VideoGame!
-    private var gameViewModel: VideoGameViewModel!
+    private var gameViewModel: GameDetailViewModel!
 
     override func setUp() {
         super.setUp()
@@ -38,7 +38,7 @@ class ReferencerTests: XCTestCase {
         //let game = VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93)
         
         self.game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
-        self.gameViewModel = VideoGameViewModel(game: game)
+        self.gameViewModel = GameDetailViewModel(game: game)
     }
 
     override func tearDown() {
@@ -112,12 +112,12 @@ class ReferencerTests: XCTestCase {
         
         let game = VideoGame(title: title, imageName: imageName, developer: developer, releaseYear: releaseYear, releaseMonth: releaseMonth, releaseDay: releaseDay, userRating: userRating, criticRating: criticRating)
         
-        let gameViewModel = VideoGameViewModel(game: game)
+        let gameViewModel = GameDetailViewModel(game: game)
         
         XCTAssertNotNil(gameViewModel.title)
         
-        XCTAssertEqual(gameViewModel.boxArt, Image("placeholderArt"))
-        XCTAssertEqual(gameViewModel.developerString, "Unknown")
+        XCTAssertEqual(gameViewModel.image, Image("placeholderArt"))
+        XCTAssertEqual(gameViewModel.subtitle, "Unknown")
         XCTAssertEqual(gameViewModel.releaseDateString, "Unknown")
         XCTAssertEqual(gameViewModel.userRatingString, "Unknown")
         XCTAssertEqual(gameViewModel.criticRatingString, "Unknown")

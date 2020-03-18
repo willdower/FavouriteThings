@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct DetailView: View {
-    let gameViewModel: VideoGameViewModel
+    let gameViewModel: GameDetailViewModel
     
     //Biggest element is the image, with a title heading, developer subtitle, and the release date, user rating and critic rating all centered at the bottom
     var body: some View {
@@ -54,6 +54,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(gameViewModel: VideoGameViewModel(game: VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93)))
+        DetailView(gameViewModel: GameDetailViewModel(game: VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93)))
     }
 }
