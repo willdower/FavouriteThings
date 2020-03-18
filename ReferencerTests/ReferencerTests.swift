@@ -52,7 +52,7 @@ class ReferencerTests: XCTestCase {
     
     func testBoxArt() {
         //This function tests the image is assigned properly during VideoGame init() and is created from the given string properly
-        XCTAssertEqual(game.boxArt, Image(imageName))
+        XCTAssertEqual(game.boxArt, Image(imageName).resizable()) //Need to add resizable in assertion too
     }
     
     func testDeveloper() {
@@ -100,7 +100,7 @@ class ReferencerTests: XCTestCase {
         //If test successfully completes, nils handled properly
     }
     
-    func testNilValuesAtViewModel() {
+    func testNilValuesAtDetailViewModel() {
         let title = "Minecraft"
         let imageName: String? = nil
         let developer: String? = nil
@@ -116,11 +116,23 @@ class ReferencerTests: XCTestCase {
         
         XCTAssertNotNil(gameViewModel.title)
         
-        XCTAssertEqual(gameViewModel.image, Image("placeholderArt"))
-        XCTAssertEqual(gameViewModel.subtitle, "Unknown")
+        XCTAssertEqual(gameViewModel.boxArt, Image("placeholderArt"))
+        XCTAssertEqual(gameViewModel.developerString, "Unknown")
         XCTAssertEqual(gameViewModel.releaseDateString, "Unknown")
         XCTAssertEqual(gameViewModel.userRatingString, "Unknown")
         XCTAssertEqual(gameViewModel.criticRatingString, "Unknown")
+    }
+    
+    func testViewModel() {
+        let viewModel = GameViewModel()
+        viewModel.addGame(game)
+        viewModel.addGame(VideoGame(title: "Steep", imageName: nil, developer: nil, releaseYear: nil, releaseMonth: nil, releaseDay: nil, userRating: nil, criticRating: nil))
+        
+        XCTAssertEqual(viewModel.gameNumber, 2)
+        XCTAssertEqual(viewModel.games[0].title, "Minecraft")
+        XCTAssertEqual(viewModel.games[1].title, "Steep")
+        XCTAssertEqual(viewModel.viewModels[0].title, "Minecraft")
+        XCTAssertEqual(viewModel.viewModels[1].title, "Steep")
     }
 
     func testPerformanceExample() {
