@@ -14,25 +14,26 @@ struct MasterView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(gameViewModel.viewModels, id: \.id) { game in //Creates a list item for each game
+                ForEach(gameViewModel.viewModels, id: \.id) { viewModel in //Creates a list item for each game
                     //Each list item has a thumbnail, title and developer on the far right
-                    NavigationLink(destination: DetailView(gameViewModel: game)) {
-                        game.boxArt
+                    NavigationLink(destination: DetailView(gameViewModel: viewModel)) {
+                        viewModel.boxArt
                             .frame(width: 36, height: 54)
                             .shadow(radius: 5)
                         Spacer()
                             .frame(width: 10)
-                        Text(game.title)
+                        Text(viewModel.title)
                         Spacer()
-                        Text(game.developerString)
+                        Text(viewModel.developerString)
                             .font(.caption)
                             .italic()
                         }
                 }
             }
-            .navigationBarTitle("Video Games")
+        .navigationBarTitle("Video Games")
+        .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        DetailView(gameViewModel: gameViewModel.viewModels[0])
         }
-        
     }
 }
 
