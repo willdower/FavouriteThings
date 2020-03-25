@@ -24,9 +24,9 @@ class GameDetailViewModel: ObservableObject, Identifiable {
     var userRatingString: String
     var criticRatingString: String
     
-    @Published var notes: String {
+    @Published var notes: String { //View updates this, as it is the middleman
         didSet {
-            self.game.notes = self.notes;
+            self.game.notes = self.notes; //When this is set, update the model
         }
     }
     

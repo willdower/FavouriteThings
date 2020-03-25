@@ -46,7 +46,14 @@ struct DetailView: View {
                         Text(gameDetailViewModel.criticRatingString)
                     }
                 }
-                TextField("Enter notes...", text: $gameDetailViewModel.notes)
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text("Notes:")
+                        .bold()
+                        .multilineTextAlignment(.leading)
+                    TextField("Enter notes...", text: $gameDetailViewModel.notes)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
             }
             Spacer()
         }
