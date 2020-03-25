@@ -10,24 +10,24 @@ import Foundation
 import SwiftUI
 
 struct DetailView: View {
-    let gameViewModel: GameDetailViewModel
+    @ObservedObject var gameDetailViewModel: GameDetailViewModel
     
     //Biggest element is the image, with a title heading, developer subtitle, and the release date, user rating and critic rating all centered at the bottom
     var body: some View {
         return HStack {
             Spacer()
             VStack(alignment: .center) {
-                gameViewModel.boxArt
+                gameDetailViewModel.boxArt
                     .shadow(radius: 10)
                     .frame(width: 360, height: 540)
                 VStack(alignment: .center) {
-                    Text(gameViewModel.title)
+                    Text(gameDetailViewModel.title)
                         .font(.largeTitle)
                     
-                    Text(gameViewModel.developerString)
+                    Text(gameDetailViewModel.developerString)
                         .font(.caption)
                     Spacer()
-                        .frame(height: 15)
+                        .frame(height: CGFloat(15))
                 }
                 HStack {
                     VStack(alignment: .trailing) {
@@ -41,19 +41,20 @@ struct DetailView: View {
                             .bold()
                     }
                     VStack(alignment: .leading) {
-                        Text(gameViewModel.releaseDateString)
-                        Text(gameViewModel.userRatingString)
-                        Text(gameViewModel.criticRatingString)
+                        Text(gameDetailViewModel.releaseDateString)
+                        Text(gameDetailViewModel.userRatingString)
+                        Text(gameDetailViewModel.criticRatingString)
                     }
                 }
-        }
-        Spacer()
+                TextField("Enter notes...", text: $gameDetailViewModel.notes)
+            }
+            Spacer()
         }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(gameViewModel: GameDetailViewModel(game: VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93)))
+        DetailView(gameDetailViewModel: GameDetailViewModel(game: VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93)))
     }
 }

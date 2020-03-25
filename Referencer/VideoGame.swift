@@ -11,7 +11,7 @@ import SwiftUI
 
 //Video game class to store details of each video game stored in the app
 
-class VideoGame: Identifiable {
+class VideoGame: ObservableObject, Identifiable {
     let id = UUID()
     var title: String
     var boxArt: Image? //Optional, no image may be known
@@ -19,6 +19,7 @@ class VideoGame: Identifiable {
     var releaseDate: Date? //Optional, release date may be unknown
     var userRating: Float? //Optional, user rating may be unknown, Float out of 10
     var criticRating: Int? //Optional, critic rating may be unknown, Int out of 100
+    @Published var notes: String
     
     init(title: String, imageName: String?, developer: String?, releaseYear: Int?, releaseMonth: Int?, releaseDay: Int?, userRating: Float?, criticRating: Int?) {
         self.title = title
@@ -45,5 +46,8 @@ class VideoGame: Identifiable {
         else {
             self.boxArt = nil
         }
+        
+        self.notes = ""
+        
     }
 }

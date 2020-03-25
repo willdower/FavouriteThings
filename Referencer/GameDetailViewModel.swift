@@ -9,13 +9,14 @@
 import Foundation
 import SwiftUI
 
-class GameDetailViewModel: Identifiable {
+class GameDetailViewModel: ObservableObject, Identifiable {
     
     //View model used to bridge the gap between model and view
     //Handles the model's nil values so that the view is passed only valid non-optionals
     //Also constructs a string to display the date from the Date() object contained within the model
     
     let id = UUID() //Unique identity for using in List views
+    var game: VideoGame
     var title: String
     var boxArt: Image
     var developerString: String
@@ -23,7 +24,15 @@ class GameDetailViewModel: Identifiable {
     var userRatingString: String
     var criticRatingString: String
     
+    @Published var notes: String {
+        didSet {
+            self.game.notes = self.notes;
+        }
+    }
+    
     init(game: VideoGame) {
+        self.game = game
+        
         self.title = game.title
         
         if let developerExists = game.developer {
@@ -65,6 +74,8 @@ class GameDetailViewModel: Identifiable {
         else {
             self.boxArt = Image("placeholderArt") //Just an empty PS4 game box with a ? on it
         }
+        
+        self.notes = ""
         
     }
 }

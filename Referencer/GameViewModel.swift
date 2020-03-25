@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GameViewModel: Identifiable {
+class GameViewModel: ObservableObject, Identifiable {
     var games: [VideoGame] {
         didSet {
             self.gameNumber = self.games.count

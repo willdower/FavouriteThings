@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct MasterView: View {
-    var gameViewModel: GameViewModel
+    @ObservedObject var gameViewModel: GameViewModel
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(gameViewModel.viewModels, id: \.id) { viewModel in //Creates a list item for each game
                     //Each list item has a thumbnail, title and developer on the far right
-                    NavigationLink(destination: DetailView(gameViewModel: viewModel)) {
+                    NavigationLink(destination: DetailView(gameDetailViewModel: viewModel)) {
                         viewModel.boxArt
                             .frame(width: 36, height: 54)
                             .shadow(radius: 5)
@@ -32,7 +32,7 @@ struct MasterView: View {
             }
         .navigationBarTitle("Video Games")
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
-        DetailView(gameViewModel: gameViewModel.viewModels[0])
+        DetailView(gameDetailViewModel: gameViewModel.viewModels[0])
         }
     }
 }
