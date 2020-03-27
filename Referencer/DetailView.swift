@@ -19,7 +19,8 @@ struct DetailView: View {
             VStack(alignment: .center) {
                 gameDetailViewModel.boxArt
                     .shadow(radius: 10)
-                    .frame(width: 360, height: 540)
+                    .aspectRatio(contentMode: .fit)
+                    //.frame(width: 360, height: 540)
                 VStack(alignment: .center) {
                     Text(gameDetailViewModel.title)
                         .font(.largeTitle)
