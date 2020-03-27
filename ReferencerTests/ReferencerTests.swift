@@ -134,6 +134,11 @@ class ReferencerTests: XCTestCase {
         XCTAssertEqual(viewModel.viewModels[0].title, "Minecraft")
         XCTAssertEqual(viewModel.viewModels[1].title, "Steep")
     }
+    
+    func testNotes() { //Tests that when note is changed through detailViewModel, it is updated in model as well
+        gameViewModel.notes = "Radical note change"
+        XCTAssertEqual(game.notes, "Radical note change")
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
