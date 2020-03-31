@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MasterView: View {
-    @ObservedObject var gameViewModel: GameViewModel
+    @ObservedObject var gameViewModel: GamesViewModel
     
     var body: some View {
         NavigationView {
@@ -39,7 +39,7 @@ struct MasterView: View {
 
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
-        let gameViewModel = GameViewModel()
+        let gameViewModel = GamesViewModel()
         gameViewModel.addGame(VideoGame(title: "Minecraft", imageName: "minecraftArt", developer: "Mojang", releaseYear: 2009, releaseMonth: 5, releaseDay: 17, userRating: 7.7, criticRating: 93))
         gameViewModel.addGame(VideoGame(title: "Steep", imageName: "steepArt", developer: "Ubisoft", releaseYear: 2016, releaseMonth: 12, releaseDay: 2, userRating: 6.8, criticRating: 72))
         gameViewModel.addGame(VideoGame(title: "Red Dead Redemption 2", imageName: "rdr2Art", developer: "Rockstar Games", releaseYear: 2018, releaseMonth: 10, releaseDay: 26, userRating: 8.1, criticRating: 97))

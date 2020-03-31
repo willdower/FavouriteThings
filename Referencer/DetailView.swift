@@ -9,6 +9,8 @@
 import Foundation
 import SwiftUI
 
+/**Handles the showing of the details of each game. Labels in the detailViewModel are used to produce the field labels for the view.**/
+
 struct DetailView: View {
     @ObservedObject var gameDetailViewModel: GameDetailViewModel
     
@@ -20,7 +22,6 @@ struct DetailView: View {
                 gameDetailViewModel.boxArt
                     .shadow(radius: 10)
                     .aspectRatio(contentMode: .fit)
-                    //.frame(width: 360, height: 540)
                 VStack(alignment: .center) {
                     Text(gameDetailViewModel.title)
                         .font(.largeTitle)
@@ -32,13 +33,13 @@ struct DetailView: View {
                 }
                 HStack {
                     VStack(alignment: .trailing) {
-                        Text("Release Date: ")
+                        Text(gameDetailViewModel.releaseDateLabel)
                             .bold()
                         
-                        Text("User Rating: ")
+                        Text(gameDetailViewModel.userRatingLabel)
                             .bold()
                             
-                        Text("Critic Rating: ")
+                        Text(gameDetailViewModel.criticRatingLabel)
                             .bold()
                     }
                     VStack(alignment: .leading) {
@@ -49,10 +50,10 @@ struct DetailView: View {
                 }
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text("Notes:")
+                    Text(gameDetailViewModel.notesLabel)
                         .bold()
                         .multilineTextAlignment(.leading)
-                    TextField("Enter notes...", text: $gameDetailViewModel.notes)
+                    TextField(gameDetailViewModel.enterNotesLabel, text: $gameDetailViewModel.notes)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
             }

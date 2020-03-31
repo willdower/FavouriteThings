@@ -124,7 +124,7 @@ class ReferencerTests: XCTestCase {
     }
     
     func testViewModel() {
-        let viewModel = GameViewModel()
+        let viewModel = GamesViewModel()
         viewModel.addGame(game)
         viewModel.addGame(VideoGame(title: "Steep", imageName: nil, developer: nil, releaseYear: nil, releaseMonth: nil, releaseDay: nil, userRating: nil, criticRating: nil))
         

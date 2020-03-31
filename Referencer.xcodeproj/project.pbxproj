@@ -17,7 +17,7 @@
 		3D592EA4240F29C500AAF8CD /* ReferencerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EA3240F29C500AAF8CD /* ReferencerUITests.swift */; };
 		3D592EB2240F3A8A00AAF8CD /* VideoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EB1240F3A8A00AAF8CD /* VideoGame.swift */; };
 		3D592EB424107C6C00AAF8CD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EB324107C6C00AAF8CD /* DetailView.swift */; };
-		3D6B7A70241C7FFA000E1503 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6B7A6F241C7FFA000E1503 /* GameViewModel.swift */; };
+		3D6B7A70241C7FFA000E1503 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6B7A6F241C7FFA000E1503 /* GamesViewModel.swift */; };
 		3D7A7B8F24173ECD00CB1986 /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A7B8E24173ECD00CB1986 /* GameDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +55,7 @@
 		3D592EA5240F29C500AAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D592EB1240F3A8A00AAF8CD /* VideoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGame.swift; sourceTree = "<group>"; };
 		3D592EB324107C6C00AAF8CD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		3D6B7A6F241C7FFA000E1503 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		3D6B7A6F241C7FFA000E1503 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
 		3D7A7B8E24173ECD00CB1986 /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +117,7 @@
 				3D592E8F240F29C500AAF8CD /* Info.plist */,
 				3D592E89240F29C500AAF8CD /* Preview Content */,
 				3D592EB1240F3A8A00AAF8CD /* VideoGame.swift */,
-				3D6B7A6F241C7FFA000E1503 /* GameViewModel.swift */,
+				3D6B7A6F241C7FFA000E1503 /* GamesViewModel.swift */,
 			);
 			path = Referencer;
 			sourceTree = "<group>";
@@ -284,7 +284,7 @@
 				3D592E86240F29C400AAF8CD /* MasterView.swift in Sources */,
 				3D592EB424107C6C00AAF8CD /* DetailView.swift in Sources */,
 				3D7A7B8F24173ECD00CB1986 /* GameDetailViewModel.swift in Sources */,
-				3D6B7A70241C7FFA000E1503 /* GameViewModel.swift in Sources */,
+				3D6B7A70241C7FFA000E1503 /* GamesViewModel.swift in Sources */,
 				3D592EB2240F3A8A00AAF8CD /* VideoGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
