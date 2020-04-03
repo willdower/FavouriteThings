@@ -22,33 +22,40 @@ struct DetailView: View {
                 gameDetailViewModel.boxArt
                     .shadow(radius: 10)
                     .aspectRatio(contentMode: .fit)
+                Spacer()
+                    .frame(height: CGFloat(30))
                 VStack(alignment: .center) {
-                    Text(gameDetailViewModel.title)
+                    TextField(gameDetailViewModel.enterTitleLabel, text: $gameDetailViewModel.title)
                         .font(.largeTitle)
+                        .frame(height: 20)
                     
-                    Text(gameDetailViewModel.developerString)
+                    TextField(gameDetailViewModel.enterDeveloperLabel, text: $gameDetailViewModel.developerString)
                         .font(.caption)
+                        .frame(height: 10)
                     Spacer()
-                        .frame(height: CGFloat(15))
+                        .frame(height: CGFloat(20))
                 }
                 HStack {
                     VStack(alignment: .trailing) {
                         Text(gameDetailViewModel.releaseDateLabel)
                             .bold()
-                        
                         Text(gameDetailViewModel.userRatingLabel)
                             .bold()
-                            
                         Text(gameDetailViewModel.criticRatingLabel)
                             .bold()
                     }
                     VStack(alignment: .leading) {
-                        Text(gameDetailViewModel.releaseDateString)
-                        Text(gameDetailViewModel.userRatingString)
-                        Text(gameDetailViewModel.criticRatingString)
+                        TextField(gameDetailViewModel.enterDateLabel, text: $gameDetailViewModel.releaseDate)
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .frame(height: 15)
+                        TextField(gameDetailViewModel.enterRatingLabel, value: $gameDetailViewModel.userRating, formatter: gameDetailViewModel.floatFormatter)
+                            .frame(height: 13)
+                        TextField(gameDetailViewModel.enterRatingLabel, value: $gameDetailViewModel.criticRating, formatter: NumberFormatter())
+                            .frame(height: 10)
                     }
                 }
                 Spacer()
+                    .frame(height: 15)
                 VStack(alignment: .leading) {
                     Text(gameDetailViewModel.notesLabel)
                         .bold()
@@ -56,8 +63,9 @@ struct DetailView: View {
                     TextField(gameDetailViewModel.enterNotesLabel, text: $gameDetailViewModel.notes)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
+                Spacer()
+                    .frame(height: 15)
             }
-            Spacer()
         }
     }
 }

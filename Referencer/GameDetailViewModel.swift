@@ -21,8 +21,24 @@ class GameDetailViewModel: ObservableObject, Identifiable {
     let criticRatingLabel = "Critic Rating: "
     let notesLabel = "Notes: "
     
-    let invalidInputLabel = "Invalid input"
     let enterNotesLabel = "Enter notes..."
+    let enterDateLabel = "Enter date..."
+    let unknownLabel = "Unknown"
+    let enterRatingLabel = "Enter rating..."
+    let enterTitleLabel = "Enter title..."
+    let enterDeveloperLabel = "Enter developer name..."
+    
+    let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        return df
+    }()
+    
+    let floatFormatter: NumberFormatter = {
+        let f = NumberFormatter()
+        f.numberStyle = .decimal
+        return f
+    }()
     
     let id = UUID() //Unique identity for using in List views
     var game: VideoGame
@@ -37,25 +53,19 @@ class GameDetailViewModel: ObservableObject, Identifiable {
             self.game.developer = self.developerString
         }
     }
-    @Published var releaseDateString: String
-    @Published var userRatingString: String {
+    @Published var releaseDate: String {
         didSet {
-            if let newUserRating = Float(userRatingString) {
-                self.game.userRating = newUserRating
-            }
-            else {
-                self.userRatingString = "Invalid input"
-            }
+            self.game.releaseDate = self.releaseDate
         }
     }
-    @Published var criticRatingString: String {
+    @Published var userRating: Double? {
         didSet {
-            if let newCriticRating = Int(criticRatingString) {
-                self.game.criticRating = newCriticRating
-            }
-            else {
-                self.criticRatingString = "Invalid input"
-            }
+            self.game.userRating = self.userRating
+        }
+    }
+    @Published var criticRating: Int? {
+        didSet {
+            self.game.criticRating = self.criticRating
         }
     }
     
@@ -77,31 +87,16 @@ class GameDetailViewModel: ObservableObject, Identifiable {
             self.developerString = "Unknown"
         }
         
-        let df = DateFormatter()
-        
-        df.dateFormat = "dd/MM/yyyy" //This can be modified per region if necessary
-        
         if let releaseDateExists = game.releaseDate {
-            self.releaseDateString = "\(df.string(from: releaseDateExists))" //Uses date format to create string with date
+            self.releaseDate = releaseDateExists
         }
         else {
-            self.releaseDateString = "Unknown"
+            self.releaseDate = "Unknown"
         }
         
-        if let userRatingExists = game.userRating {
-            
-            self.userRatingString = String(format: "%.1f", userRatingExists) //Cut rating Float value to 1 decimal place
-        }
-        else {
-            self.userRatingString = "Unknown"
-        }
+        self.userRating = game.userRating
         
-        if let criticRatingExists = game.criticRating {
-            self.criticRatingString = "\(criticRatingExists)"
-        }
-        else {
-            self.criticRatingString = "Unknown"
-        }
+        self.criticRating = game.criticRating
         
         if let imageExists = game.boxArt {
             self.boxArt = imageExists
