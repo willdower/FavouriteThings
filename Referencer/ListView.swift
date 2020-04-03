@@ -17,7 +17,7 @@ struct ListView: View {
             ForEach(gamesViewModel.viewModels.indices, id: \.self) { index in //Creates a list item for each game
                 //Each list item has a thumbnail, title and developer on the far right
                 NavigationLink(destination: DetailView(gameDetailViewModel: self.gamesViewModel.viewModels[index], game: Binding(get: { return self.gamesViewModel.games[index] }, set: { (newValue) in return self.gamesViewModel.games[index] = newValue }))) {
-                    self.gamesViewModel.viewModels[index].boxArt
+                    self.gamesViewModel.games[index].boxArt
                         .frame(width: 36, height: 54)
                         .shadow(radius: 5)
                     Spacer()

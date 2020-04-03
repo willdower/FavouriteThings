@@ -20,11 +20,24 @@ struct DetailView: View {
         return HStack {
             Spacer()
             VStack(alignment: .center) {
-                game.boxArt
+                self.game.boxArt
                     .shadow(radius: 10)
                     .aspectRatio(contentMode: .fit)
                 Spacer()
-                    .frame(height: CGFloat(30))
+                    .frame(height: CGFloat(10))
+                HStack {
+                    Text("URL:")
+                        .bold()
+                    TextField("Enter new image URL...", text: $game.imageURL)
+                        .frame(width: 250, height: 15)
+                    Button(action: {
+                        self.game.loadImage()
+                    }) {
+                        Text("Load")
+                    }
+                }
+                Spacer()
+                    .frame(height: CGFloat(50))
                 VStack(alignment: .center) {
                     TextField(gameDetailViewModel.enterTitleLabel, text: $game.title)
                         .font(.largeTitle)
@@ -47,7 +60,6 @@ struct DetailView: View {
                     }
                     VStack(alignment: .leading) {
                         TextField(gameDetailViewModel.enterDateLabel, text: $game.releaseDate)
-                            .textFieldStyle(PlainTextFieldStyle())
                             .frame(height: 15)
                         TextField(gameDetailViewModel.enterRatingLabel, value: $game.userRating, formatter: gameDetailViewModel.floatFormatter)
                             .frame(height: 13)

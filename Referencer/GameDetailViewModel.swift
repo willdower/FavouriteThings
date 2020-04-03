@@ -43,7 +43,7 @@ struct GameDetailViewModel: Identifiable {
     let id = UUID() //Unique identity for using in List views
     var game: VideoGame
     var title: String = ""
-    var boxArt: Image = Image("placeholderArt")
+    var imageURL: String = ""
     var developerString: String = ""
     var releaseDate: String = ""
     var userRating: Double?
@@ -71,12 +71,7 @@ struct GameDetailViewModel: Identifiable {
         
         self.criticRating = game.criticRating
         
-        if let imageExists = game.boxArt {
-            self.boxArt = imageExists
-        }
-        else {
-            self.boxArt = Image("placeholderArt") //Just an empty PS4 game box with a ? on it
-        }
+        self.imageURL = game.imageURL
         
         self.notes = ""
         
