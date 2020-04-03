@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 
+/// This struct holds the view that generates the list of games on the main screen of the app.
 struct ListView: View {
     @Binding var gamesViewModel: GamesViewModel
     

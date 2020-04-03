@@ -8,7 +8,9 @@
 
 import SwiftUI
 
+/// This struct holds the GamesViewModel and the view that the listView is embedded in, with navigation added.
 struct MasterView: View {
+    /// This holds the GamesViewModel, which holds all of the models and DetailViewModels in arrays.
     @State var gamesViewModel = GamesViewModel()
     
     var body: some View {
