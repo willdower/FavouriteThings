@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 
+/// The struct holding all of the games and corresponding detailViewModels used by the app.
 struct GamesViewModel {
     
     let viewModelsLabel = "Video Games"
@@ -25,14 +26,23 @@ struct GamesViewModel {
     }
     var viewModels: [GameDetailViewModel] = []
     
+    ///Adds a game to the games stored in the ViewModel.
+    ///
+    /// - Parameters:
+    ///   -game: Game to add to the ViewModel.
     mutating func addGame(_ game: VideoGame) -> Void {
         games.append(game)
     }
     
+    ///Adds an empty game to the games stored in the ViewModel.
     mutating func addGame() -> Void {
         games.append(VideoGame())
     }
     
+    ///Removes a game from the ViewModel.
+    ///
+    /// - Parameters:
+    ///   -indices: Index set of the game(s) to remove
     mutating func removeGame(_ indices: IndexSet) {
         indices.forEach { self.games.remove(at: $0) }
         if self.games.count == 0 {
@@ -40,6 +50,7 @@ struct GamesViewModel {
         }
     }
     
+    ///Initialises the ViewModel with 4 pre-loaded games for demonstration
     init() {
         self.games = []
         

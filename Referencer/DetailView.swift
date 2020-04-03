@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-/**Handles the showing of the details of each game. Labels in the detailViewModel are used to produce the field labels for the view.**/
+///This struct holds the view that handles the showing of the details of each game. Labels in the detailViewModel are used to produce the field labels for the view.
 
 struct DetailView: View {
     let gameDetailViewModel: GameDetailViewModel
@@ -26,14 +26,14 @@ struct DetailView: View {
                 Spacer()
                     .frame(height: CGFloat(10))
                 HStack {
-                    Text("URL:")
+                    Text(gameDetailViewModel.urlLabel)
                         .bold()
-                    TextField("Enter new image URL...", text: $game.imageURL)
+                    TextField(gameDetailViewModel.enterURLLabel, text: $game.imageURL)
                         .frame(width: 250, height: 15)
                     Button(action: {
                         self.game.loadImage()
                     }) {
-                        Text("Load")
+                        Text(gameDetailViewModel.loadLabel)
                     }
                 }
                 Spacer()
@@ -61,7 +61,7 @@ struct DetailView: View {
                     VStack(alignment: .leading) {
                         TextField(gameDetailViewModel.enterDateLabel, text: $game.releaseDate)
                             .frame(height: 15)
-                        TextField(gameDetailViewModel.enterRatingLabel, value: $game.userRating, formatter: gameDetailViewModel.floatFormatter)
+                        TextField(gameDetailViewModel.enterRatingLabel, value: $game.userRating, formatter: gameDetailViewModel.doubleFormatter)
                             .frame(height: 13)
                         TextField(gameDetailViewModel.enterRatingLabel, value: $game.criticRating, formatter: NumberFormatter())
                             .frame(height: 10)
