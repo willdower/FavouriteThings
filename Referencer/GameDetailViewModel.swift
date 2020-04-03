@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-class GameDetailViewModel: ObservableObject, Identifiable {
+struct GameDetailViewModel: Identifiable {
     
     /**View model used to bridge the gap between model and view
     Handles the model's nil values so that the view is passed only valid non-optionals
@@ -42,57 +42,30 @@ class GameDetailViewModel: ObservableObject, Identifiable {
     
     let id = UUID() //Unique identity for using in List views
     var game: VideoGame
-    @Published var title: String {
-        didSet {
-            self.game.title = self.title
-        }
-    }
-    @Published var boxArt: Image
-    @Published var developerString: String {
-        didSet {
-            self.game.developer = self.developerString
-        }
-    }
-    @Published var releaseDate: String {
-        didSet {
-            self.game.releaseDate = self.releaseDate
-        }
-    }
-    @Published var userRating: Double? {
-        didSet {
-            self.game.userRating = self.userRating
-        }
-    }
-    @Published var criticRating: Int? {
-        didSet {
-            self.game.criticRating = self.criticRating
-        }
-    }
-    
-    @Published var notes: String { //View updates this, as it is the middleman
-        didSet {
-            self.game.notes = self.notes; //When this is set, update the model
-        }
-    }
+    var title: String = ""
+    var boxArt: Image = Image("placeholderArt")
+    var developerString: String = ""
+    var releaseDate: String = ""
+    var userRating: Double?
+    var criticRating: Int?
+    var notes: String
     
     init(game: VideoGame) {
+        
         self.game = game
         
         self.title = game.title
         
-        if let developerExists = game.developer {
-            self.developerString = developerExists
-        }
-        else {
-            self.developerString = "Unknown"
-        }
+        self.developerString = game.developer
         
-        if let releaseDateExists = game.releaseDate {
+        self.releaseDate = game.releaseDate
+        
+        /*if let releaseDateExists = game.releaseDate {
             self.releaseDate = releaseDateExists
         }
         else {
             self.releaseDate = "Unknown"
-        }
+        }*/
         
         self.userRating = game.userRating
         
