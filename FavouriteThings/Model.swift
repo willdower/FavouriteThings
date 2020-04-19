@@ -1,8 +1,8 @@
 //
-//  VideoGame.swift
-//  Referencer
+//  model.swift
+//  FavouriteThings
 //
-//  Created by William Dower on 4/3/20.
+//  Created by William Dower on 19/4/20.
 //  Copyright © 2020 William Dower. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import SwiftUI
 
 
 /// This struct is the model of the app, containing all of the data about any particular video game.
-struct VideoGame: Identifiable {
+struct Model: Identifiable {
     
     /// Provides a unique ID for SwiftUI views
     let id = UUID()
@@ -20,17 +20,26 @@ struct VideoGame: Identifiable {
     /// The URL of the image to be loaded using loadImage()
     var imageURL: String = "https://i.imgur.com/Nkqztzw.jpg"
     /// The Image featuring the box art, located wherever the imageURL property of the struct is pointed
-    var boxArt: Image?
+    var image: Image?
     /// This string holds the input developer of the game
-    var developer: String = ""
+    var subtitle: String = ""
     /// This string holds the input release date of the game
-    var releaseDate: String = ""
+    var fieldOne: String = ""
     /// This string holds the input user rating of the game
-    var userRating: Double? //Optional, user rating may be unknown, Double out of 10
+    var fieldTwo: String = ""
     /// This string holds the input critic rating of the game
-    var criticRating: Int? //Optional, critic rating may be unknown, Int out of 100
+    var fieldThree: String = ""
     /// This string holds the input notes about the game
     var notes: String = ""
+    
+    /// This string holds the label for field one
+    var fieldOneLabel: String = "Field One: "
+    /// This string holds the label for field two
+    var fieldTwoLabel: String = "Field Two: "
+    /// This string holds the label for field three
+    var fieldThreeLabel:String = "Field Three: "
+    /// This string hold sthe label for the notes field
+    var notesLabel: String = "Notes: "
     
     /// This function loads the image at the URL in the struct's imageURL property
     ///
@@ -42,7 +51,7 @@ struct VideoGame: Identifiable {
                fatalError("Image download failure")
         }
         
-        self.boxArt = Image(uiImage: uiImage).resizable()
+        self.image = Image(uiImage: uiImage).resizable()
     }
     
     /// Initialises game struct with all empty fields and a placeholder boxArt
@@ -51,13 +60,13 @@ struct VideoGame: Identifiable {
     }
     
     /// Initialises game struct with given parameters
-    init(title: String, imageURL: String, developer: String, releaseDate: String, userRating: Double, criticRating: Int) {
+    init(title: String, imageURL: String, subtitle: String, fieldOne: String, fieldTwo: String, fieldThree: String) {
         self.title = title
         self.imageURL = imageURL
-        self.developer = developer
-        self.releaseDate = releaseDate
-        self.userRating = userRating
-        self.criticRating = criticRating
+        self.subtitle = subtitle
+        self.fieldOne = fieldOne
+        self.fieldTwo = fieldTwo
+        self.fieldThree = fieldThree
         
         self.loadImage()
     }

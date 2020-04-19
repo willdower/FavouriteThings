@@ -1,8 +1,8 @@
 //
 //  ListView.swift
-//  Referencer
+//  FavouriteThings
 //
-//  Created by William Dower on 3/4/20.
+//  Created by William Dower on 19/4/20.
 //  Copyright © 2020 William Dower. All rights reserved.
 //
 
@@ -11,26 +11,26 @@ import SwiftUI
 
 /// This struct holds the view that generates the list of games on the main screen of the app.
 struct ListView: View {
-    @Binding var gamesViewModel: GamesViewModel
+    @Binding var itemViewModels: ItemViewModels
     
     var body: some View {
         List {
-            ForEach(gamesViewModel.viewModels.indices, id: \.self) { index in //Creates a list item for each game
+            ForEach(itemViewModels.viewModels.indices, id: \.self) { index in //Creates a list item for each game
                 //Each list item has a thumbnail, title and developer on the far right
-                NavigationLink(destination: DetailView(gameDetailViewModel: self.gamesViewModel.viewModels[index], game: Binding(get: { return self.gamesViewModel.games[index] }, set: { (newValue) in return self.gamesViewModel.games[index] = newValue }))) {
-                    self.gamesViewModel.games[index].boxArt
+                NavigationLink(destination: DetailView(detailViewModel: self.itemViewModels.viewModels[index], model: Binding(get: { return self.itemViewModels.models[index] }, set: { (newValue) in return self.itemViewModels.models[index] = newValue }))) {
+                    self.itemViewModels.models[index].image
                         .frame(width: 36, height: 54)
                         .shadow(radius: 5)
                     Spacer()
                         .frame(width: 10)
-                    Text(self.gamesViewModel.viewModels[index].title)
+                    Text(self.itemViewModels.viewModels[index].title)
                     Spacer()
-                    Text(self.gamesViewModel.viewModels[index].developerString)
+                    Text(self.itemViewModels.viewModels[index].subtitle)
                         .font(.caption)
                         .italic()
                 }
             }.onDelete { indices in
-                self.gamesViewModel.removeGame(indices)
+                self.itemViewModels.removeItem(indices)
             }
         }
     }

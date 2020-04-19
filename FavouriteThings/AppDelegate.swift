@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Referencer
+//  FavouriteThings
 //
-//  Created by William Dower on 4/3/20.
+//  Created by William Dower on 19/4/20.
 //  Copyright © 2020 William Dower. All rights reserved.
 //
 

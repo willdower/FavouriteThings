@@ -1,8 +1,8 @@
 //
 //  DetailView.swift
-//  Referencer
+//  FavouriteThings
 //
-//  Created by William Dower on 5/3/20.
+//  Created by William Dower on 19/4/20.
 //  Copyright © 2020 William Dower. All rights reserved.
 //
 
@@ -12,38 +12,38 @@ import SwiftUI
 ///This struct holds the view that handles the showing of the details of each game. Labels in the detailViewModel are used to produce the field labels for the view.
 
 struct DetailView: View {
-    let gameDetailViewModel: GameDetailViewModel
-    @Binding var game: VideoGame
+    let detailViewModel: DetailViewModel
+    @Binding var model: Model
     
     //Biggest element is the image, with a title heading, developer subtitle, and the release date, user rating and critic rating all centered at the bottom
     var body: some View {
         return HStack {
             Spacer()
             VStack(alignment: .center) {
-                self.game.boxArt
+                self.model.image
                     .shadow(radius: 10)
                     .aspectRatio(contentMode: .fit)
                 Spacer()
                     .frame(height: CGFloat(10))
                 HStack {
-                    Text(gameDetailViewModel.urlLabel)
+                    Text(detailViewModel.urlLabel)
                         .bold()
-                    TextField(gameDetailViewModel.enterURLLabel, text: $game.imageURL)
+                    TextField(detailViewModel.enterURLLabel, text: $model.imageURL)
                         .frame(width: 250, height: 15)
                     Button(action: {
-                        self.game.loadImage()
+                        self.model.loadImage()
                     }) {
-                        Text(gameDetailViewModel.loadLabel)
+                        Text(detailViewModel.loadLabel)
                     }
                 }
                 Spacer()
                     .frame(height: CGFloat(50))
                 VStack(alignment: .center) {
-                    TextField(gameDetailViewModel.enterTitleLabel, text: $game.title)
+                    TextField(detailViewModel.enterTitleLabel, text: $model.title)
                         .font(.largeTitle)
                         .frame(height: 20)
                     
-                    TextField(gameDetailViewModel.enterDeveloperLabel, text: $game.developer)
+                    TextField(detailViewModel.enterSubtitleLabel, text: $model.subtitle)
                         .font(.caption)
                         .frame(height: 10)
                     Spacer()
@@ -51,29 +51,25 @@ struct DetailView: View {
                 }
                 HStack {
                     VStack(alignment: .trailing) {
-                        Text(gameDetailViewModel.releaseDateLabel)
-                            .bold()
-                        Text(gameDetailViewModel.userRatingLabel)
-                            .bold()
-                        Text(gameDetailViewModel.criticRatingLabel)
-                            .bold()
+                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldOneLabel)
+                            .font(.system(size: 15, weight: .heavy))
+                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldTwoLabel)
+                            .font(.system(size: 15, weight: .heavy))
+                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldThreeLabel)
+                            .font(.system(size: 15, weight: .heavy))
                     }
                     VStack(alignment: .leading) {
-                        TextField(gameDetailViewModel.enterDateLabel, text: $game.releaseDate)
-                            .frame(height: 15)
-                        TextField(gameDetailViewModel.enterRatingLabel, value: $game.userRating, formatter: gameDetailViewModel.doubleFormatter)
-                            .frame(height: 13)
-                        TextField(gameDetailViewModel.enterRatingLabel, value: $game.criticRating, formatter: NumberFormatter())
-                            .frame(height: 10)
+                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldOne)
+                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldTwo)
+                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldThree)
                     }
                 }
                 Spacer()
                     .frame(height: 15)
                 VStack(alignment: .leading) {
-                    Text(gameDetailViewModel.notesLabel)
-                        .bold()
-                        .multilineTextAlignment(.leading)
-                    TextField(gameDetailViewModel.enterNotesLabel, text: $game.notes)
+                    TextField(detailViewModel.enterFieldLabel, text: $model.notesLabel)
+                        .font(.system(size: 15, weight: .heavy))
+                    TextField(detailViewModel.enterInfoLabel, text: $model.notes)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 Spacer()

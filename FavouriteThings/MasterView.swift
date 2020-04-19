@@ -1,8 +1,8 @@
 //
 //  MasterView.swift
-//  Referencer
+//  FavouriteThings
 //
-//  Created by William Dower on 4/3/20.
+//  Created by William Dower on 19/4/20.
 //  Copyright © 2020 William Dower. All rights reserved.
 //
 
@@ -11,24 +11,24 @@ import SwiftUI
 /// This struct holds the GamesViewModel and the view that the listView is embedded in, with navigation added.
 struct MasterView: View {
     /// This holds the GamesViewModel, which holds all of the models and DetailViewModels in arrays.
-    @State var gamesViewModel = GamesViewModel()
+    @State var viewModels = ItemViewModels()
     
     var body: some View {
         NavigationView {
-            ListView(gamesViewModel: $gamesViewModel)
-            .navigationBarTitle(gamesViewModel.viewModelsLabel)
+            ListView(itemViewModels: $viewModels)
+            .navigationBarTitle(viewModels.listTitle)
             .navigationBarItems(
                 leading: EditButton(),
                 trailing: Button(
                     action: {
-                        withAnimation { self.gamesViewModel.addGame() }
+                        withAnimation { self.viewModels.addItem() }
                     }
                 ) {
                     Image(systemName: "plus")
                 }
             )
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
-            DetailView(gameDetailViewModel: gamesViewModel.viewModels[0], game: $gamesViewModel.games[0])
+            DetailView(detailViewModel: viewModels.viewModels[0], model: $viewModels.models[0])
         }
     }
 }
