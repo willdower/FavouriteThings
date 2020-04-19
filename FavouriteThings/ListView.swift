@@ -31,6 +31,8 @@ struct ListView: View {
                 }
             }.onDelete { indices in
                 self.itemViewModels.removeItem(indices)
+            }.onMove { (indices, destination) in
+                self.itemViewModels.models.move(fromOffsets: indices, toOffset: destination)
             }
         }
     }
