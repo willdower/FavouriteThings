@@ -40,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D592E7E240F29C400AAF8CD /* Referencer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Referencer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D592E7E240F29C400AAF8CD /* FavouriteThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D592E81240F29C400AAF8CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D592E83240F29C400AAF8CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3D592E85240F29C400AAF8CD /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
@@ -48,10 +48,10 @@
 		3D592E8A240F29C500AAF8CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3D592E8D240F29C500AAF8CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D592E8F240F29C500AAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D592E94240F29C500AAF8CD /* ReferencerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReferencerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D592E94240F29C500AAF8CD /* FavouriteThingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavouriteThingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D592E98240F29C500AAF8CD /* ReferencerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencerTests.swift; sourceTree = "<group>"; };
 		3D592E9A240F29C500AAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D592E9F240F29C500AAF8CD /* ReferencerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReferencerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D592E9F240F29C500AAF8CD /* FavouriteThingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavouriteThingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D592EA3240F29C500AAF8CD /* ReferencerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencerUITests.swift; sourceTree = "<group>"; };
 		3D592EA5240F29C500AAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D592EB1240F3A8A00AAF8CD /* VideoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGame.swift; sourceTree = "<group>"; };
@@ -89,9 +89,9 @@
 		3D592E75240F29C400AAF8CD = {
 			isa = PBXGroup;
 			children = (
-				3D592E80240F29C400AAF8CD /* Referencer */,
-				3D592E97240F29C500AAF8CD /* ReferencerTests */,
-				3D592EA2240F29C500AAF8CD /* ReferencerUITests */,
+				3D592E80240F29C400AAF8CD /* FavouriteThings */,
+				3D592E97240F29C500AAF8CD /* FavouriteThingsTests */,
+				3D592EA2240F29C500AAF8CD /* FavouriteThingsUITests */,
 				3D592E7F240F29C400AAF8CD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,14 +99,14 @@
 		3D592E7F240F29C400AAF8CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3D592E7E240F29C400AAF8CD /* Referencer.app */,
-				3D592E94240F29C500AAF8CD /* ReferencerTests.xctest */,
-				3D592E9F240F29C500AAF8CD /* ReferencerUITests.xctest */,
+				3D592E7E240F29C400AAF8CD /* FavouriteThings.app */,
+				3D592E94240F29C500AAF8CD /* FavouriteThingsTests.xctest */,
+				3D592E9F240F29C500AAF8CD /* FavouriteThingsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3D592E80240F29C400AAF8CD /* Referencer */ = {
+		3D592E80240F29C400AAF8CD /* FavouriteThings */ = {
 			isa = PBXGroup;
 			children = (
 				3D592E81240F29C400AAF8CD /* AppDelegate.swift */,
@@ -122,7 +122,7 @@
 				3D592EB1240F3A8A00AAF8CD /* VideoGame.swift */,
 				3D6B7A6F241C7FFA000E1503 /* GamesViewModel.swift */,
 			);
-			path = Referencer;
+			path = FavouriteThings;
 			sourceTree = "<group>";
 		};
 		3D592E89240F29C500AAF8CD /* Preview Content */ = {
@@ -133,30 +133,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3D592E97240F29C500AAF8CD /* ReferencerTests */ = {
+		3D592E97240F29C500AAF8CD /* FavouriteThingsTests */ = {
 			isa = PBXGroup;
 			children = (
 				3D592E98240F29C500AAF8CD /* ReferencerTests.swift */,
 				3D592E9A240F29C500AAF8CD /* Info.plist */,
 			);
-			path = ReferencerTests;
+			path = FavouriteThingsTests;
 			sourceTree = "<group>";
 		};
-		3D592EA2240F29C500AAF8CD /* ReferencerUITests */ = {
+		3D592EA2240F29C500AAF8CD /* FavouriteThingsUITests */ = {
 			isa = PBXGroup;
 			children = (
 				3D592EA3240F29C500AAF8CD /* ReferencerUITests.swift */,
 				3D592EA5240F29C500AAF8CD /* Info.plist */,
 			);
-			path = ReferencerUITests;
+			path = FavouriteThingsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3D592E7D240F29C400AAF8CD /* Referencer */ = {
+		3D592E7D240F29C400AAF8CD /* FavouriteThings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D592EA8240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "Referencer" */;
+			buildConfigurationList = 3D592EA8240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "FavouriteThings" */;
 			buildPhases = (
 				3D592E7A240F29C400AAF8CD /* Sources */,
 				3D592E7B240F29C400AAF8CD /* Frameworks */,
@@ -166,14 +166,14 @@
 			);
 			dependencies = (
 			);
-			name = Referencer;
+			name = FavouriteThings;
 			productName = Referencer;
-			productReference = 3D592E7E240F29C400AAF8CD /* Referencer.app */;
+			productReference = 3D592E7E240F29C400AAF8CD /* FavouriteThings.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3D592E93240F29C500AAF8CD /* ReferencerTests */ = {
+		3D592E93240F29C500AAF8CD /* FavouriteThingsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D592EAB240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "ReferencerTests" */;
+			buildConfigurationList = 3D592EAB240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "FavouriteThingsTests" */;
 			buildPhases = (
 				3D592E90240F29C500AAF8CD /* Sources */,
 				3D592E91240F29C500AAF8CD /* Frameworks */,
@@ -184,14 +184,14 @@
 			dependencies = (
 				3D592E96240F29C500AAF8CD /* PBXTargetDependency */,
 			);
-			name = ReferencerTests;
+			name = FavouriteThingsTests;
 			productName = ReferencerTests;
-			productReference = 3D592E94240F29C500AAF8CD /* ReferencerTests.xctest */;
+			productReference = 3D592E94240F29C500AAF8CD /* FavouriteThingsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3D592E9E240F29C500AAF8CD /* ReferencerUITests */ = {
+		3D592E9E240F29C500AAF8CD /* FavouriteThingsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D592EAE240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "ReferencerUITests" */;
+			buildConfigurationList = 3D592EAE240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "FavouriteThingsUITests" */;
 			buildPhases = (
 				3D592E9B240F29C500AAF8CD /* Sources */,
 				3D592E9C240F29C500AAF8CD /* Frameworks */,
@@ -202,9 +202,9 @@
 			dependencies = (
 				3D592EA1240F29C500AAF8CD /* PBXTargetDependency */,
 			);
-			name = ReferencerUITests;
+			name = FavouriteThingsUITests;
 			productName = ReferencerUITests;
-			productReference = 3D592E9F240F29C500AAF8CD /* ReferencerUITests.xctest */;
+			productReference = 3D592E9F240F29C500AAF8CD /* FavouriteThingsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3D592E79240F29C400AAF8CD /* Build configuration list for PBXProject "Referencer" */;
+			buildConfigurationList = 3D592E79240F29C400AAF8CD /* Build configuration list for PBXProject "FavouriteThings" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -243,9 +243,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3D592E7D240F29C400AAF8CD /* Referencer */,
-				3D592E93240F29C500AAF8CD /* ReferencerTests */,
-				3D592E9E240F29C500AAF8CD /* ReferencerUITests */,
+				3D592E7D240F29C400AAF8CD /* FavouriteThings */,
+				3D592E93240F29C500AAF8CD /* FavouriteThingsTests */,
+				3D592E9E240F29C500AAF8CD /* FavouriteThingsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,12 +314,12 @@
 /* Begin PBXTargetDependency section */
 		3D592E96240F29C500AAF8CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D592E7D240F29C400AAF8CD /* Referencer */;
+			target = 3D592E7D240F29C400AAF8CD /* FavouriteThings */;
 			targetProxy = 3D592E95240F29C500AAF8CD /* PBXContainerItemProxy */;
 		};
 		3D592EA1240F29C500AAF8CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D592E7D240F29C400AAF8CD /* Referencer */;
+			target = 3D592E7D240F29C400AAF8CD /* FavouriteThings */;
 			targetProxy = 3D592EA0240F29C500AAF8CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -455,16 +455,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Referencer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FavouriteThings/Preview Content\"";
 				DEVELOPMENT_TEAM = DF3P78J78N;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Referencer/Info.plist;
+				INFOPLIST_FILE = FavouriteThings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = au.edu.griffith.prog.Referencer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.griffith.prog.FavouriteThings;
+				PRODUCT_NAME = FavouriteThings;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -475,16 +475,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Referencer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FavouriteThings/Preview Content\"";
 				DEVELOPMENT_TEAM = DF3P78J78N;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Referencer/Info.plist;
+				INFOPLIST_FILE = FavouriteThings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = au.edu.griffith.prog.Referencer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.griffith.prog.FavouriteThings;
+				PRODUCT_NAME = FavouriteThings;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -507,7 +507,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Referencer.app/Referencer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FavouriteThings.app/FavouriteThings";
 			};
 			name = Debug;
 		};
@@ -528,7 +528,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Referencer.app/Referencer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FavouriteThings.app/FavouriteThings";
 			};
 			name = Release;
 		};
@@ -573,7 +573,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3D592E79240F29C400AAF8CD /* Build configuration list for PBXProject "Referencer" */ = {
+		3D592E79240F29C400AAF8CD /* Build configuration list for PBXProject "FavouriteThings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D592EA6240F29C500AAF8CD /* Debug */,
@@ -582,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D592EA8240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "Referencer" */ = {
+		3D592EA8240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "FavouriteThings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D592EA9240F29C500AAF8CD /* Debug */,
@@ -591,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D592EAB240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "ReferencerTests" */ = {
+		3D592EAB240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "FavouriteThingsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D592EAC240F29C500AAF8CD /* Debug */,
@@ -600,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D592EAE240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "ReferencerUITests" */ = {
+		3D592EAE240F29C500AAF8CD /* Build configuration list for PBXNativeTarget "FavouriteThingsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D592EAF240F29C500AAF8CD /* Debug */,
