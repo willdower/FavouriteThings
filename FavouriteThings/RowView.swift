@@ -9,7 +9,9 @@
 import Foundation
 import SwiftUI
 
+/// This struct is a view that represents each object model in the ListView
 struct RowView: View {
+    /// This observed object holds the model that each row (one row per RowView) references
     @ObservedObject var model: Model
     
     var body: some View {

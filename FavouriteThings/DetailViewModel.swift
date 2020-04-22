@@ -7,10 +7,12 @@
 //
 
 import Foundation
-import SwiftUI
 
 /// This struct is the viewModel that handles all of the static display logic.
 struct DetailViewModel {
+    
+    /// String displayed when a value is unknown
+    let unknownLabel = "Unknown"
     /// String displayed as load button
     let loadLabel = "Load"
     /// String displayed as label for the URL field
@@ -25,4 +27,6 @@ struct DetailViewModel {
     let enterURLLabel = "Enter new image URL..."
     /// String displayed when a field label is empty
     let enterFieldLabel = "Enter field label..."
+    /// String displayed when list title is being edited
+    let titleEditPrepend = "✏️"
 }

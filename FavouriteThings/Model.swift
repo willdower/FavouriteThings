@@ -9,26 +9,26 @@
 import Foundation
 import SwiftUI
 
-/// This struct is the model of the app, containing all of the data about any particular video game.
+/// This struct is the model of the app, containing all of the data about any object.
 class Model: Identifiable, Codable, ObservableObject {
     
     /// Provides a unique ID for SwiftUI views
     let id = UUID()
-    /// This string holds the input video game's title
+    /// This string holds the object's title.
     @Published var title: String = ""
-    /// The URL of the image to be loaded using loadImage()
+    /// The URL of the image to be loaded using loadImage().
     @Published var imageURL: String = "https://i.imgur.com/Nkqztzw.jpg"
-    /// The Image featuring the box art, located wherever the imageURL property of the struct is pointed
+    /// The image loaded from the URL, located wherever the imageURL property of the struct is pointed.
     @Published var image: Image?
-    /// This string holds the input developer of the game
+    /// This string holds the subtitle of the object.
     @Published var subtitle: String = ""
-    /// This string holds the input release date of the game
+    /// This string holds the first info field of the object.
     @Published var fieldOne: String = ""
-    /// This string holds the input user rating of the game
+    /// This string holds the second info field of the object.
     @Published var fieldTwo: String = ""
-    /// This string holds the input critic rating of the game
+    /// This string holds the third info field of the object.
     @Published var fieldThree: String = ""
-    /// This string holds the input notes about the game
+    /// This string holds the notes field of the object.
     @Published var notes: String = ""
     
     /// This string holds the label for field one
@@ -40,6 +40,7 @@ class Model: Identifiable, Codable, ObservableObject {
     /// This string hold sthe label for the notes field
     @Published var notesLabel: String = "Notes: "
     
+    /// This enum provides the CodingKeys for encoding and decoding the model data into JSON, necessary for persistent data storage.
     enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -68,28 +69,37 @@ class Model: Identifiable, Codable, ObservableObject {
         self.image = Image(uiImage: uiImage).resizable()
     }
     
+    /// This function encodes the model into a JSON format for use in saving the model persistently.
+    ///
+    /// - Parameters:
+    ///     - encoder: The encoder that is used to encode the data.
     func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(title, forKey: .title)
-        try container.encode(subtitle, forKey: .subtitle)
-        try container.encode(imageURL, forKey: .imageURL)
-        try container.encode(fieldOne, forKey: .fieldOne)
-        try container.encode(fieldTwo, forKey: .fieldTwo)
-        try container.encode(fieldThree, forKey: .fieldThree)
-        try container.encode(notes, forKey: .notes)
-        try container.encode(fieldOneLabel, forKey: .fieldOneLabel)
-        try container.encode(fieldTwoLabel, forKey: .fieldTwoLabel)
-        try container.encode(fieldThreeLabel, forKey: .fieldThreeLabel)
-        try container.encode(notesLabel, forKey: .notesLabel)
+        do {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(id, forKey: .id)
+            try container.encode(title, forKey: .title)
+            try container.encode(subtitle, forKey: .subtitle)
+            try container.encode(imageURL, forKey: .imageURL)
+            try container.encode(fieldOne, forKey: .fieldOne)
+            try container.encode(fieldTwo, forKey: .fieldTwo)
+            try container.encode(fieldThree, forKey: .fieldThree)
+            try container.encode(notes, forKey: .notes)
+            try container.encode(fieldOneLabel, forKey: .fieldOneLabel)
+            try container.encode(fieldTwoLabel, forKey: .fieldTwoLabel)
+            try container.encode(fieldThreeLabel, forKey: .fieldThreeLabel)
+            try container.encode(notesLabel, forKey: .notesLabel)
+        }
+        catch {
+            print("Failed to save at the model level")
+        }
     }
     
-    /// Initialises game struct with all empty fields and a placeholder boxArt
+    /// Initialises object with all empty fields and a placeholder image
     init() {
         self.loadImage()
     }
     
-    /// Initialises game struct with given parameters
+    /// Initialises object class with given parameters
     init(title: String, imageURL: String, subtitle: String, fieldOneLabel: String, fieldOne: String, fieldTwoLabel: String, fieldTwo: String, fieldThreeLabel: String, fieldThree: String) {
         self.title = title
         self.imageURL = imageURL
@@ -105,6 +115,10 @@ class Model: Identifiable, Codable, ObservableObject {
         self.loadImage()
     }
     
+    /// This function decodes the model from a JSON format to use persistently saved data.
+    ///
+    /// - Parameters:
+    ///     - decoder: The decoder that is used to decode the data.
     required init(from decoder: Decoder) throws {
         do {
             let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -124,7 +138,7 @@ class Model: Identifiable, Codable, ObservableObject {
             self.loadImage()
         }
         catch {
-            print("Failed to decode individual")
+            print("Failed to decode at the model level")
             
         }
     }

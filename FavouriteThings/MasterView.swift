@@ -8,26 +8,39 @@
 
 import SwiftUI
 
-/// This struct holds the GamesViewModel and the view that the listView is embedded in, with navigation added.
+/// This struct holds the MasterView, which has a ListView embedded within a NavigationView.
 struct MasterView: View {
-    /// This holds the GamesViewModel, which holds all of the models and DetailViewModels in arrays.
+    /// This observed object is a reference to the object that holds all of the models and the detailViewModel
     @ObservedObject var viewModels: ItemViewModels
+    @State private var mode = EditMode.inactive
     
     var body: some View {
         NavigationView {
-            ListView(itemViewModels: viewModels)
-            .navigationBarTitle(viewModels.listTitle)
-            .navigationBarItems(
-                leading: EditButton(),
-                trailing: Button(
-                    action: {
-                        withAnimation { self.viewModels.addItem() }
+            VStack {
+                // Using @Environment did not work for some reason, had to use this with
+                // .environment below
+                if mode == .active {
+                    HStack {
+                        Text(viewModels.detailViewModel.titleEditPrepend)
+                        TextField(viewModels.detailViewModel.enterTitleLabel, text: $viewModels.listTitle)
+                            .font(Font.system(.largeTitle).bold())
                     }
-                ) {
-                    Image(systemName: "plus")
                 }
-            )
-            .navigationViewStyle(DoubleColumnNavigationViewStyle())
+                ListView(itemViewModels: viewModels)
+                .navigationBarTitle(mode == .active ? "" : viewModels.listTitle)
+                .navigationBarItems(
+                    leading: EditButton(),
+                    trailing: Button(
+                        action: {
+                            withAnimation { self.viewModels.addItem() }
+                        }
+                    ) {
+                        Image(systemName: "plus")
+                    }
+                )
+                .navigationViewStyle(DoubleColumnNavigationViewStyle())
+                .environment(\.editMode, $mode)
+            }
         }
     }
 }

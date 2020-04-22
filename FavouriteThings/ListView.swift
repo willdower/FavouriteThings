@@ -9,8 +9,9 @@
 import Foundation
 import SwiftUI
 
-/// This struct holds the view that generates the list of games on the main screen of the app.
+/// This struct holds the view that generates the list of objects on the main screen of the app. Each row has a leading thumbnail image, title and a trailing italic subtitle.
 struct ListView: View {
+    /// This variable holds the reference to the object that holds all of the model objects and the DetailViewModel
     @ObservedObject var itemViewModels: ItemViewModels
     
     var body: some View {

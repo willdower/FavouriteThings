@@ -9,47 +9,42 @@
 import Foundation
 import SwiftUI
 
-/// The struct holding all of the games and corresponding detailViewModels used by the app.
+/// The class holding all of the models for objects saved in the app, as well as the detailViewModel used for display logic.
 class ItemViewModels: Codable, ObservableObject, Identifiable {
     
-    var listTitle = "Favourite Things"
-    var unknownLabel = "Unknown"
+    /// The title of the MasterView object list.
+    @Published var listTitle = "Favourite Things"
     
+    /// The array that holds all of the object models.
+    @Published var models: [Model]
     
-
-    @Published var models: [Model] /*{
-        didSet {
-            self.viewModels = []
-            for i in 0..<self.models.count {
-                self.viewModels.append(DetailViewModel(model: self.models[i]))
-            }
-        }
-    }*/
+    /// The DetailViewModel that holds the display logic.
     let detailViewModel = DetailViewModel()
     
+    /// The CodingKeys use to encode and decode the ItemViewModels object for persistent storage.
     enum CodingKeys: String, CodingKey {
         case listTitle
         case unknownLabel
         case models
     }
     
-    ///Adds a game to the games stored in the ViewModel.
+    ///Adds an object to the objects stored in the array.
     ///
     /// - Parameters:
-    ///   -game: Game to add to the ViewModel.
+    ///   - item: Object to add to the array.
     func addItem(_ item: Model) -> Void {
         models.append(item)
     }
     
-    ///Adds an empty game to the games stored in the ViewModel.
+    ///Adds an empty object to the objects stored in the array.
     func addItem() -> Void {
         models.append(Model())
     }
     
-    ///Removes a game from the ViewModel.
+    ///Removes a game from the ItemViewModel's array.
     ///
     /// - Parameters:
-    ///   -indices: Index set of the game(s) to remove
+    ///   - indices: Index set of the object(s) to remove
     func removeItem(_ indices: IndexSet) {
         indices.forEach { self.models.remove(at: $0) }
         if self.models.count == 0 {
@@ -57,14 +52,17 @@ class ItemViewModels: Codable, ObservableObject, Identifiable {
         }
     }
     
+    /// This function encodes the ItemViewModel into a JSON format for use in saving it persistently.
+    ///
+    /// - Parameters:
+    ///     - encoder: The encoder that is used to encode the data.
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(listTitle, forKey: .listTitle)
-        try container.encode(unknownLabel, forKey: .unknownLabel)
         try container.encode(models, forKey: .models)
     }
     
-    ///Initialises the ViewModel with 4 pre-loaded games for demonstration
+    ///Initialises the ViewModel with 4 pre-loaded objects for demonstration
     init() {
         self.models = []
         
@@ -74,17 +72,19 @@ class ItemViewModels: Codable, ObservableObject, Identifiable {
         self.addItem(Model(title: "Fortnite", imageURL: "https://i.imgur.com/zNyYcqG.jpg", subtitle: "Epic Games", fieldOneLabel: "Release Date:", fieldOne: "25/7/2017", fieldTwoLabel: "User Rating:", fieldTwo: "3.7", fieldThreeLabel: "Critic Rating:", fieldThree: "78"))
     }
     
+    /// This function decodes the ItemViewModel from a JSON format to use persistently saved data.
+    ///
+    /// - Parameters:
+    ///     - decoder: The decoder that is used to decode the data.
     required init(from decoder: Decoder) {
         do {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             listTitle = try container.decode(String.self, forKey: .listTitle)
-            unknownLabel = try container.decode(String.self, forKey: .unknownLabel)
             models = try container.decode([Model].self, forKey: .models)
         }
         catch {
             print("Failed to decode")
             listTitle = "Favourite Things"
-            unknownLabel = "Unknown"
             models = [Model]()
         }
         
