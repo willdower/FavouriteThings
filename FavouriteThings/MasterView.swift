@@ -11,11 +11,11 @@ import SwiftUI
 /// This struct holds the GamesViewModel and the view that the listView is embedded in, with navigation added.
 struct MasterView: View {
     /// This holds the GamesViewModel, which holds all of the models and DetailViewModels in arrays.
-    @State var viewModels = ItemViewModels()
+    @ObservedObject var viewModels: ItemViewModels
     
     var body: some View {
         NavigationView {
-            ListView(itemViewModels: $viewModels)
+            ListView(itemViewModels: viewModels)
             .navigationBarTitle(viewModels.listTitle)
             .navigationBarItems(
                 leading: EditButton(),
@@ -28,7 +28,7 @@ struct MasterView: View {
                 }
             )
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
-            DetailView(detailViewModel: viewModels.viewModels[0], model: $viewModels.models[0])
+            //DetailView(detailViewModel: viewModels.viewModels[0], model: $viewModels.models[0])
         }
     }
 }

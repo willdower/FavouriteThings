@@ -11,21 +11,21 @@ import SwiftUI
 
 /// This struct holds the view that generates the list of games on the main screen of the app.
 struct ListView: View {
-    @Binding var itemViewModels: ItemViewModels
+    @ObservedObject var itemViewModels: ItemViewModels
     
     var body: some View {
         List {
-            ForEach(itemViewModels.viewModels.indices, id: \.self) { index in //Creates a list item for each game
+            ForEach(itemViewModels.models, id: \.id) { model in //Creates a list item for each game
                 //Each list item has a thumbnail, title and developer on the far right
-                NavigationLink(destination: DetailView(detailViewModel: self.itemViewModels.viewModels[index], model: Binding(get: { return self.itemViewModels.models[index] }, set: { (newValue) in return self.itemViewModels.models[index] = newValue }))) {
-                    self.itemViewModels.models[index].image
+                NavigationLink(destination: DetailView(detailViewModel: self.itemViewModels.detailViewModel, model: model)) {
+                    model.image
                         .frame(width: 36, height: 54)
                         .shadow(radius: 5)
                     Spacer()
                         .frame(width: 10)
-                    Text(self.itemViewModels.viewModels[index].title)
+                    Text(model.title)
                     Spacer()
-                    Text(self.itemViewModels.viewModels[index].subtitle)
+                    Text(model.subtitle)
                         .font(.caption)
                         .italic()
                 }

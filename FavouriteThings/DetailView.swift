@@ -12,8 +12,8 @@ import SwiftUI
 ///This struct holds the view that handles the showing of the details of each game. Labels in the detailViewModel are used to produce the field labels for the view.
 
 struct DetailView: View {
-    let detailViewModel: DetailViewModel
-    @Binding var model: Model
+    var detailViewModel: DetailViewModel
+    @ObservedObject var model: Model
     
     //Biggest element is the image, with a title heading, developer subtitle, and the release date, user rating and critic rating all centered at the bottom
     var body: some View {
