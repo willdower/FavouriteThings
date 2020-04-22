@@ -1,15 +1,15 @@
 //
-//  ReferencerUITests.swift
-//  ReferencerUITests
+//  FavouriteThingsUITests.swift
+//  FavouriteThingsUITests
 //
-//  Created by William Dower on 4/3/20.
+//  Created by William Dower on 22/4/20.
 //  Copyright © 2020 William Dower. All rights reserved.
 //
 
 import XCTest
-@testable import Referencer
+@testable import FavouriteThings
 
-class ReferencerUITests: XCTestCase {
+class FavouriteThingsUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

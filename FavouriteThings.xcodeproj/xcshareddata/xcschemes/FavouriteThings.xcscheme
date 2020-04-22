@@ -37,6 +37,11 @@
                BlueprintName = "FavouriteThingsTests"
                ReferencedContainer = "container:FavouriteThings.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ReferencerTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">

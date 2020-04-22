@@ -66,10 +66,10 @@ class ItemViewModels: Codable, ObservableObject, Identifiable {
     init() {
         self.models = []
         
+        self.addItem(Model(title: "Chandler Bing", imageURL: "https://i.imgur.com/znmt1bu.jpg", subtitle: "Friends Character", fieldOneLabel: "Gender:", fieldOne: "Male", fieldTwoLabel: "Job:", fieldTwo: "Transponster", fieldThreeLabel: "Best of All the Friends:", fieldThree: "Yes"))
         self.addItem(Model(title: "Minecraft", imageURL: "https://i.imgur.com/hDE2TIm.jpg", subtitle: "Mojang", fieldOneLabel: "Release Date:", fieldOne: "17/5/2009", fieldTwoLabel: "User Rating:", fieldTwo: "7.7", fieldThreeLabel: "Critic Rating:", fieldThree: "93"))
-        self.addItem(Model(title: "Steep", imageURL: "https://i.imgur.com/Jnt4nOs.jpg", subtitle: "Ubisoft", fieldOneLabel: "Release Date:", fieldOne: "2016/12/2", fieldTwoLabel: "User Rating:", fieldTwo: "6.8", fieldThreeLabel: "Critic Rating:", fieldThree: "72"))
         self.addItem(Model(title: "Red Dead Redemption 2", imageURL: "https://i.imgur.com/buKG2h2.jpg", subtitle: "Rockstar Games", fieldOneLabel: "Release Date:", fieldOne: "26/10/2018", fieldTwoLabel: "User Rating:", fieldTwo: "8.1", fieldThreeLabel: "Critic Rating:", fieldThree: "97"))
-        self.addItem(Model(title: "Fortnite", imageURL: "https://i.imgur.com/zNyYcqG.jpg", subtitle: "Epic Games", fieldOneLabel: "Release Date:", fieldOne: "25/7/2017", fieldTwoLabel: "User Rating:", fieldTwo: "3.7", fieldThreeLabel: "Critic Rating:", fieldThree: "78"))
+        self.addItem(Model(title: "Pear", imageURL: "https://i.imgur.com/ZKqwV6e.jpg", subtitle: "Cool Food", fieldOneLabel: "Colour:", fieldOne: "Green", fieldTwoLabel: "Fruit or Vegetable:", fieldTwo: "Fruit", fieldThreeLabel: "Is it spicy?", fieldThree: "No"))
     }
     
     /// This function decodes the ItemViewModel from a JSON format to use persistently saved data.

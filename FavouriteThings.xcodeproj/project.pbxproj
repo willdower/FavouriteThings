@@ -13,14 +13,15 @@
 		3D592E88240F29C500AAF8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D592E87240F29C500AAF8CD /* Assets.xcassets */; };
 		3D592E8B240F29C500AAF8CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D592E8A240F29C500AAF8CD /* Preview Assets.xcassets */; };
 		3D592E8E240F29C500AAF8CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D592E8C240F29C500AAF8CD /* LaunchScreen.storyboard */; };
-		3D592E99240F29C500AAF8CD /* ReferencerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592E98240F29C500AAF8CD /* ReferencerTests.swift */; };
-		3D592EA4240F29C500AAF8CD /* ReferencerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EA3240F29C500AAF8CD /* ReferencerUITests.swift */; };
+		3D592E99240F29C500AAF8CD /* FavouriteThingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592E98240F29C500AAF8CD /* FavouriteThingsTests.swift */; };
+		3D592EA4240F29C500AAF8CD /* FavouriteThingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EA3240F29C500AAF8CD /* FavouriteThingsUITests.swift */; };
 		3D592EB2240F3A8A00AAF8CD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EB1240F3A8A00AAF8CD /* Model.swift */; };
 		3D592EB424107C6C00AAF8CD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592EB324107C6C00AAF8CD /* DetailView.swift */; };
 		3D6B7A70241C7FFA000E1503 /* ItemViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6B7A6F241C7FFA000E1503 /* ItemViewModels.swift */; };
 		3D73143F2437304100C55C6C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D73143E2437304100C55C6C /* ListView.swift */; };
 		3D7A7B8F24173ECD00CB1986 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A7B8E24173ECD00CB1986 /* DetailViewModel.swift */; };
 		3DF67C16244FDBF4001EDA3B /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF67C15244FDBF4001EDA3B /* RowView.swift */; };
+		3DF67C1A24507223001EDA3B /* models.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF67C1924507223001EDA3B /* models.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +51,10 @@
 		3D592E8D240F29C500AAF8CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D592E8F240F29C500AAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D592E94240F29C500AAF8CD /* FavouriteThingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavouriteThingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D592E98240F29C500AAF8CD /* ReferencerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencerTests.swift; sourceTree = "<group>"; };
+		3D592E98240F29C500AAF8CD /* FavouriteThingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteThingsTests.swift; sourceTree = "<group>"; };
 		3D592E9A240F29C500AAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D592E9F240F29C500AAF8CD /* FavouriteThingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavouriteThingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D592EA3240F29C500AAF8CD /* ReferencerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencerUITests.swift; sourceTree = "<group>"; };
+		3D592EA3240F29C500AAF8CD /* FavouriteThingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteThingsUITests.swift; sourceTree = "<group>"; };
 		3D592EA5240F29C500AAF8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D592EB1240F3A8A00AAF8CD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3D592EB324107C6C00AAF8CD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		3D73143E2437304100C55C6C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		3D7A7B8E24173ECD00CB1986 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		3DF67C15244FDBF4001EDA3B /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		3DF67C1924507223001EDA3B /* models.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = models.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +141,8 @@
 		3D592E97240F29C500AAF8CD /* FavouriteThingsTests */ = {
 			isa = PBXGroup;
 			children = (
-				3D592E98240F29C500AAF8CD /* ReferencerTests.swift */,
+				3DF67C1924507223001EDA3B /* models.json */,
+				3D592E98240F29C500AAF8CD /* FavouriteThingsTests.swift */,
 				3D592E9A240F29C500AAF8CD /* Info.plist */,
 			);
 			path = FavouriteThingsTests;
@@ -148,7 +151,7 @@
 		3D592EA2240F29C500AAF8CD /* FavouriteThingsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3D592EA3240F29C500AAF8CD /* ReferencerUITests.swift */,
+				3D592EA3240F29C500AAF8CD /* FavouriteThingsUITests.swift */,
 				3D592EA5240F29C500AAF8CD /* Info.plist */,
 			);
 			path = FavouriteThingsUITests;
@@ -268,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF67C1A24507223001EDA3B /* models.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D592E99240F29C500AAF8CD /* ReferencerTests.swift in Sources */,
+				3D592E99240F29C500AAF8CD /* FavouriteThingsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D592EA4240F29C500AAF8CD /* ReferencerUITests.swift in Sources */,
+				3D592EA4240F29C500AAF8CD /* FavouriteThingsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +504,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReferencerTests/Info.plist;
+				INFOPLIST_FILE = FavouriteThingsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,7 +525,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReferencerTests/Info.plist;
+				INFOPLIST_FILE = FavouriteThingsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -541,7 +545,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReferencerUITests/Info.plist;
+				INFOPLIST_FILE = FavouriteThingsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,7 +564,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReferencerUITests/Info.plist;
+				INFOPLIST_FILE = FavouriteThingsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
