@@ -18,16 +18,7 @@ struct ListView: View {
             ForEach(itemViewModels.models, id: \.id) { model in //Creates a list item for each game
                 //Each list item has a thumbnail, title and developer on the far right
                 NavigationLink(destination: DetailView(detailViewModel: self.itemViewModels.detailViewModel, model: model)) {
-                    model.image
-                        .frame(width: 36, height: 54)
-                        .shadow(radius: 5)
-                    Spacer()
-                        .frame(width: 10)
-                    Text(model.title)
-                    Spacer()
-                    Text(model.subtitle)
-                        .font(.caption)
-                        .italic()
+                    RowView(model: model)
                 }
             }.onDelete { indices in
                 self.itemViewModels.removeItem(indices)

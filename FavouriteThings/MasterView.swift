@@ -28,7 +28,6 @@ struct MasterView: View {
                 }
             )
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
-            //DetailView(detailViewModel: viewModels.viewModels[0], model: $viewModels.models[0])
         }
     }
 }
