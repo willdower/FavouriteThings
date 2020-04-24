@@ -114,28 +114,8 @@ class FavouriteThingsTests: XCTestCase {
         XCTAssertEqual(itemViewModels.models[5].fieldTwo, "One")
     }
     
-    /// Tests that previously encoded files can be successfully decoded.
-    func testDecode() {
-        
-        let bundle = Bundle(for: type(of: self))
-        let path = bundle.path(forResource: "models", ofType: "json")
-        let fileURL = URL(string: path!)
-        
-        do {
-            let t = try Data(contentsOf: fileURL!)
-            let decoder = JSONDecoder()
-            let newItemViewModels = try decoder.decode(ItemViewModels.self, from: t)
-            
-            XCTAssertEqual(newItemViewModels.models[0].title, "Chandler Bing")
-        }
-        catch {
-            print("Failed")
-        }
-    
-    }
-    
-    /// Provided that testDecode() is successful, tests that files can be encoded successfully.
-    func testEncode() {
+    /// Tests that model data is successfully saved to file and can be read from that file.
+    func testSaveToFile() {
         
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -150,17 +130,20 @@ class FavouriteThingsTests: XCTestCase {
         }
         catch {
             print("Write failed to: \(fileURL.path), \(error)")
+            XCTFail() // Instantly fail if this is reached
         }
         
         do {
             let t = try Data(contentsOf: fileURL)
             let decoder = JSONDecoder()
             let newItemViewModels = try decoder.decode(ItemViewModels.self, from: t)
+            print("Successfully loaded from file at \(fileURL.path)")
             
             XCTAssertEqual(newItemViewModels.models[0].title, "Chandler Bing")
         }
         catch {
-            print("Failed")
+            print("Failed to load from file")
+            XCTFail() // Instantly fail if this is reached
         }
         
     }
