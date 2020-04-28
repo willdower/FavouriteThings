@@ -139,12 +139,13 @@ class FavouriteThingsTests: XCTestCase {
             let newItemViewModels = try decoder.decode(ItemViewModels.self, from: t)
             print("Successfully loaded from file at \(fileURL.path)")
             
-            XCTAssertEqual(newItemViewModels.models[0].title, "Chandler Bing")
+            XCTAssertEqual(newItemViewModels.models[0].title, itemViewModels.models[0].title)
         }
         catch {
             print("Failed to load from file")
             XCTFail() // Instantly fail if this is reached
         }
+
         
     }
 

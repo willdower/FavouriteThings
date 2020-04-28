@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Object" representedClassName="Object" syncable="YES" codeGenerationType="class">
+        <attribute name="fieldOne" attributeType="String"/>
+        <attribute name="fieldOneLabel" attributeType="String"/>
+        <attribute name="fieldThree" attributeType="String"/>
+        <attribute name="fieldThreeLabel" attributeType="String"/>
+        <attribute name="fieldTwo" attributeType="String"/>
+        <attribute name="fieldTwoLabel" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageURL" attributeType="String"/>
+        <attribute name="notes" attributeType="String"/>
+        <attribute name="notesLabel" attributeType="String"/>
+        <attribute name="subtitle" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="objectList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ObjectList" inverseName="objects" inverseEntity="ObjectList"/>
+    </entity>
+    <entity name="ObjectList" representedClassName="ObjectList" syncable="YES" codeGenerationType="class">
+        <attribute name="title" attributeType="String"/>
+        <relationship name="objects" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Object" inverseName="objectList" inverseEntity="Object"/>
+    </entity>
+    <elements>
+        <element name="Object" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="ObjectList" positionX="-303.75" positionY="28.859375" width="128" height="73"/>
+    </elements>
+</model>

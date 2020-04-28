@@ -12,11 +12,12 @@ import SwiftUI
 /// This struct holds the view that generates the list of objects on the main screen of the app. Each row has a leading thumbnail image, title and a trailing italic subtitle.
 struct ListView: View {
     /// This variable holds the reference to the object that holds all of the model objects and the DetailViewModel
-    @ObservedObject var itemViewModels: ItemViewModels
+    @ObservedObject var objectList: ObjectList
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         List {
-            ForEach(itemViewModels.models, id: \.id) { model in //Creates a list item for each game
+            ForEach(objectList.objects, id: \.id) { model in //Creates a list item for each game
                 //Each list item has a thumbnail, title and developer on the far right
                 NavigationLink(destination: DetailView(detailViewModel: self.itemViewModels.detailViewModel, model: model)) {
                     RowView(model: model)

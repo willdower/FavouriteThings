@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1083452457FD6E00E16E60 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D1083432457FD6E00E16E60 /* DataModel.xcdatamodeld */; };
 		3D592E82240F29C400AAF8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592E81240F29C400AAF8CD /* AppDelegate.swift */; };
 		3D592E84240F29C400AAF8CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592E83240F29C400AAF8CD /* SceneDelegate.swift */; };
 		3D592E86240F29C400AAF8CD /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592E85240F29C400AAF8CD /* MasterView.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1083442457FD6E00E16E60 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		3D592E7E240F29C400AAF8CD /* FavouriteThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D592E81240F29C400AAF8CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D592E83240F29C400AAF8CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		3D592E80240F29C400AAF8CD /* FavouriteThings */ = {
 			isa = PBXGroup;
 			children = (
+				3D1083432457FD6E00E16E60 /* DataModel.xcdatamodeld */,
 				3D592E81240F29C400AAF8CD /* AppDelegate.swift */,
 				3D592E83240F29C400AAF8CD /* SceneDelegate.swift */,
 				3DF67C15244FDBF4001EDA3B /* RowView.swift */,
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D73143F2437304100C55C6C /* ListView.swift in Sources */,
+				3D1083452457FD6E00E16E60 /* DataModel.xcdatamodeld in Sources */,
 				3D592E82240F29C400AAF8CD /* AppDelegate.swift in Sources */,
 				3D592E84240F29C400AAF8CD /* SceneDelegate.swift in Sources */,
 				3D592E86240F29C400AAF8CD /* MasterView.swift in Sources */,
@@ -618,6 +622,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3D1083432457FD6E00E16E60 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D1083442457FD6E00E16E60 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 3D1083442457FD6E00E16E60 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3D592E76240F29C400AAF8CD /* Project object */;
 }

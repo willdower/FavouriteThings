@@ -9,11 +9,6 @@
 import UIKit
 import SwiftUI
 
-private let fileManager = FileManager.default
-private let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-private let documentFolderURL = urls[0]
-private let fileURL = documentFolderURL.appendingPathComponent("models.json")
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var viewModels = ItemViewModels()
@@ -25,19 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        do {
-            let t = try Data(contentsOf: fileURL)
-            let decoder = JSONDecoder()
-            let models = try decoder.decode(ItemViewModels.self, from: t)
-            viewModels = models
-            print("Loaded from \(fileURL.path)")
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("No current app delegate running")
         }
-        catch {
-            print("Failed to load from \(fileURL.path): \(error)")
-        }
+        let context = appDelegate.persistentContainer.viewContext
         
         // Create the SwiftUI view that provides the window contents.
-        let masterView = MasterView(viewModels: viewModels)
+        let masterView = MasterView(viewModels: viewModels).environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -74,17 +63,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-        do {
-            let json = JSONEncoder()
-            let data = try json.encode(viewModels)
-            try data.write(to: fileURL)
-            print("Saved to \(fileURL.path)")
-        }
-        catch {
-            print("Write failed to: \(fileURL.path), \(error)")
-        }
     }
-
-
 }
-

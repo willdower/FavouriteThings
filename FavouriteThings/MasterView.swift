@@ -13,6 +13,8 @@ struct MasterView: View {
     /// This observed object is a reference to the object that holds all of the models and the detailViewModel
     @ObservedObject var viewModels: ItemViewModels
     @State private var mode = EditMode.inactive
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ObjectList.title, ascending: true)]) var objectList: FetchedResults<ObjectList>
     
     var body: some View {
         NavigationView {

@@ -6,6 +6,7 @@
 //  Copyright © 2020 William Dower. All rights reserved.
 //
 
+import CoreData
 import UIKit
 
 @UIApplicationMain
@@ -31,7 +32,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "ObjectList")
+        container.loadPersistentStores { (storeDescription, error) in
+            if let errorExists = error as NSError? {
+                print("Failed to load/create database")
+                fatalError("\(errorExists): \(errorExists.userInfo)")
+            }
+        }
+        return container
+    }()
+    
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            }
+            catch {
+                let cannotSaveError = error as NSError
+                print("Failed to save the changes to the context")
+                fatalError("\(cannotSaveError): \(cannotSaveError.userInfo)")
+            }
+        }
+    }
 }
-
