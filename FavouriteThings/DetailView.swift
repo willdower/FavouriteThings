@@ -15,7 +15,7 @@ struct DetailView: View {
     /// This variable is the ViewModel that handles the display logic.
     var detailViewModel: DetailViewModel
     /// This variable is a reference to the model object that the DetailView is displaying the details of.
-    @ObservedObject var model: Model
+    @ObservedObject var model: Object
     
     //Biggest element is the image, with a title, subtitle, and the release date, user rating and critic rating all centered at the bottom
     var body: some View {

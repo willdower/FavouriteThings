@@ -12,11 +12,11 @@ import SwiftUI
 /// This struct is a view that represents each object model in the ListView
 struct RowView: View {
     /// This observed object holds the model that each row (one row per RowView) references
-    @ObservedObject var model: Model
+    @ObservedObject var model: Object
     
     var body: some View {
         HStack {
-            model.image
+            Image(uiImage: model.image)
             .frame(width: 36, height: 54)
             .shadow(radius: 5)
             Spacer()

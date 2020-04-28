@@ -8,6 +8,7 @@
         <attribute name="fieldTwo" attributeType="String"/>
         <attribute name="fieldTwoLabel" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES"/>
         <attribute name="imageURL" attributeType="String"/>
         <attribute name="notes" attributeType="String"/>
         <attribute name="notesLabel" attributeType="String"/>
@@ -20,7 +21,7 @@
         <relationship name="objects" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Object" inverseName="objectList" inverseEntity="Object"/>
     </entity>
     <elements>
-        <element name="Object" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="Object" positionX="-63" positionY="-18" width="128" height="253"/>
         <element name="ObjectList" positionX="-303.75" positionY="28.859375" width="128" height="73"/>
     </elements>
 </model>

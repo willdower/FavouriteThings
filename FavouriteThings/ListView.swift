@@ -14,12 +14,13 @@ struct ListView: View {
     /// This variable holds the reference to the object that holds all of the model objects and the DetailViewModel
     @ObservedObject var objectList: ObjectList
     @Environment(\.managedObjectContext) var context
+    let detailViewModel: DetailViewModel
     
     var body: some View {
         List {
-            ForEach(objectList.objects, id: \.id) { model in //Creates a list item for each game
+            ForEach(objectList.objectsArray, id: \.id) { model in //Creates a list item for each game
                 //Each list item has a thumbnail, title and developer on the far right
-                NavigationLink(destination: DetailView(detailViewModel: self.itemViewModels.detailViewModel, model: model)) {
+                NavigationLink(destination: DetailView(detailViewModel: detailViewModel, model: model)) {
                     RowView(model: model)
                 }
             }.onDelete { indices in
