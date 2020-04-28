@@ -13,6 +13,7 @@ import SwiftUI
 struct RowView: View {
     /// This observed object holds the model that each row (one row per RowView) references
     @ObservedObject var model: Object
+    let detailViewModel: DetailViewModel
     
     var body: some View {
         HStack {
@@ -21,9 +22,9 @@ struct RowView: View {
             .shadow(radius: 5)
             Spacer()
                 .frame(width: 10)
-            Text(model.title)
+            Text(model.title ?? detailViewModel.unknownLabel)
             Spacer()
-            Text(model.subtitle)
+            Text(model.subtitle ?? detailViewModel.unknownLabel)
                 .font(.caption)
                 .italic()
         }
