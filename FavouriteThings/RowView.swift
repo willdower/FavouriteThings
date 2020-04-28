@@ -16,7 +16,7 @@ struct RowView: View {
     
     var body: some View {
         HStack {
-            Image(uiImage: model.image)
+            Image(uiImage: model.image as? UIImage ?? model.loadImage())
             .frame(width: 36, height: 54)
             .shadow(radius: 5)
             Spacer()

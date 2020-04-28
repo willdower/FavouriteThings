@@ -11,15 +11,17 @@ import CoreData
 import SwiftUI
 
 extension Object {
-    func loadImage() -> Void {
+    func loadImage() -> UIImage {
         guard let url = URL(string: self.imageURL ?? "notarealURL"),
         let imageData = try? Data(contentsOf: url),
         let uiImage = UIImage(data: imageData) else {
             print("Failed to load image")
-            let uiImage = UIImage(named: "placeholderArt")
-            self.image = uiImage
-            return
+            let placeholderImage = UIImage(named: "placeholderArt")
+            self.image = placeholderImage
+            return placeholderImage!
+            // Force unwrap as placeholderArt will always exist - its in the assets folder
         }
         self.image = uiImage
+        return uiImage
     }
 }
