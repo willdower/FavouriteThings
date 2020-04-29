@@ -8,7 +8,7 @@
         <attribute name="fieldTwo" attributeType="String"/>
         <attribute name="fieldTwoLabel" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="image" optional="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="imageURL" attributeType="String"/>
         <attribute name="notes" attributeType="String"/>
         <attribute name="notesLabel" attributeType="String"/>

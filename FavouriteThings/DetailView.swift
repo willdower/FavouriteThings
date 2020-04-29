@@ -22,7 +22,7 @@ struct DetailView: View {
         return HStack {
             Spacer()
             VStack(alignment: .center) {
-                self.model.image
+                
                     .shadow(radius: 10)
                     .aspectRatio(contentMode: .fit)
                 Spacer()
@@ -30,10 +30,10 @@ struct DetailView: View {
                 HStack {
                     Text(detailViewModel.urlLabel)
                         .bold()
-                    TextField(detailViewModel.enterURLLabel, text: $model.imageURL)
+                    TextField(detailViewModel.enterURLLabel, text: $model.urlField)
                         .frame(width: 250, height: 15)
                     Button(action: {
-                        self.model.loadImage()
+                        self.model.getImage()
                     }) {
                         Text(detailViewModel.loadLabel)
                     }
@@ -41,11 +41,11 @@ struct DetailView: View {
                 Spacer()
                     .frame(height: CGFloat(50))
                 VStack(alignment: .center) {
-                    TextField(detailViewModel.enterTitleLabel, text: $model.title)
+                    TextField(detailViewModel.enterTitleLabel, text: $model.titleField)
                         .font(.largeTitle)
                         .frame(height: 20)
                     
-                    TextField(detailViewModel.enterSubtitleLabel, text: $model.subtitle)
+                    TextField(detailViewModel.enterSubtitleLabel, text: $model.subtitleField)
                         .font(.caption)
                         .frame(height: 10)
                     Spacer()
@@ -53,25 +53,25 @@ struct DetailView: View {
                 }
                 HStack {
                     VStack(alignment: .trailing) {
-                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldOneLabel)
+                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldOneLabelField)
                             .font(.system(size: 15, weight: .heavy))
-                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldTwoLabel)
+                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldTwoLabelField)
                             .font(.system(size: 15, weight: .heavy))
-                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldThreeLabel)
+                        TextField(detailViewModel.enterFieldLabel, text: $model.fieldThreeLabelField)
                             .font(.system(size: 15, weight: .heavy))
                     }
                     VStack(alignment: .leading) {
-                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldOne)
-                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldTwo)
-                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldThree)
+                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldOneField)
+                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldTwoField)
+                        TextField(detailViewModel.enterInfoLabel, text: $model.fieldThreeField)
                     }
                 }
                 Spacer()
                     .frame(height: 15)
                 VStack(alignment: .leading) {
-                    TextField(detailViewModel.enterFieldLabel, text: $model.notesLabel)
+                    TextField(detailViewModel.enterFieldLabel, text: $model.notesLabelField)
                         .font(.system(size: 15, weight: .heavy))
-                    TextField(detailViewModel.enterInfoLabel, text: $model.notes)
+                    TextField(detailViewModel.enterInfoLabel, text: $model.notesField)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 Spacer()
