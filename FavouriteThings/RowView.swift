@@ -13,6 +13,7 @@ import SwiftUI
 struct RowView: View {
     /// This observed object holds the model that each row (one row per RowView) references
     @ObservedObject var model: Thing
+    /// Holds the ViewModel that handles all of the static display logic
     let detailViewModel: DetailViewModel
     
     var body: some View {

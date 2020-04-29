@@ -33,6 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    /// Saves current context before app termination.
+    func applicationWillTerminate(_ application: UIApplication) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("No current app delegate running")
+        }
+        appDelegate.saveContext()
+    }
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores { (storeDescription, error) in
@@ -41,10 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("\(errorExists): \(errorExists.userInfo)")
             }
         }
-        print("Loaded from CoreData")
+        print("Successfully loaded from CoreData")
         return container
     }()
     
+    /// Saves changes to the context to CoreData
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {

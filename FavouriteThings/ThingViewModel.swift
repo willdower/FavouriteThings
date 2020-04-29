@@ -11,6 +11,7 @@ import CoreData
 import SwiftUI
 
 extension Thing {
+    /// Gets the image from the web at thing's imageURL and saves it to thing.imageData as Data? with pngData().
     func getImage() -> Void {
         guard let url = URL(string: self.imageURL ?? "notarealURL"),
         let imageData = try? Data(contentsOf: url),
@@ -21,6 +22,9 @@ extension Thing {
         }
         self.imageData = uiImage.pngData()
     }
+    /// Loads the image data from the CoreData.
+    ///
+    /// - Returns: Image from imageData or placeholderArt Image
     func loadImage() -> Image? {
         guard let imageDataExists = self.imageData,
         let uiImage = UIImage(data: imageDataExists) else {
@@ -28,6 +32,7 @@ extension Thing {
         }
         return Image(uiImage: uiImage)
     }
+    /// Provides getter and setter for changing a thing's URL
     var urlField: String {
         get {
             self.imageURL ?? ""
@@ -36,6 +41,7 @@ extension Thing {
             self.imageURL = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's title
     var titleField: String {
         get {
             self.title ?? ""
@@ -44,6 +50,7 @@ extension Thing {
             self.title = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's subtitle
     var subtitleField: String {
         get {
             self.subtitle ?? ""
@@ -52,6 +59,7 @@ extension Thing {
             self.subtitle = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's fieldOne
     var fieldOneField: String {
         get {
             self.fieldOne ?? ""
@@ -60,6 +68,7 @@ extension Thing {
             self.fieldOne = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's fieldOneLabel
     var fieldOneLabelField: String {
         get {
             self.fieldOneLabel ?? ""
@@ -68,6 +77,7 @@ extension Thing {
             self.fieldOneLabel = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's fieldTwo
     var fieldTwoField: String {
         get {
             self.fieldTwo ?? ""
@@ -76,6 +86,7 @@ extension Thing {
             self.fieldTwo = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's fieldTwoLabel
     var fieldTwoLabelField: String {
         get {
             self.fieldTwoLabel ?? ""
@@ -84,6 +95,7 @@ extension Thing {
             self.fieldTwoLabel = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's fieldThree
     var fieldThreeField: String {
         get {
             self.fieldThree ?? ""
@@ -92,6 +104,7 @@ extension Thing {
             self.fieldThree = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's fieldThreeLabel
     var fieldThreeLabelField: String {
         get {
             self.fieldThreeLabel ?? ""
@@ -100,6 +113,7 @@ extension Thing {
             self.fieldThreeLabel = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's notes
     var notesField: String {
         get {
             self.notes ?? ""
@@ -108,6 +122,7 @@ extension Thing {
             self.notes = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's notesLabel
     var notesLabelField: String {
         get {
             self.notesLabel ?? ""

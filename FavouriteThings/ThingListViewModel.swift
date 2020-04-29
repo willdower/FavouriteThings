@@ -9,10 +9,13 @@
 import Foundation
 import CoreData
 
+/// Extends ThingList and adds the ViewModel operations.
 extension ThingList {
+    /// Holds all models in an array rather than a ThingList for easier access.
     var thingsArray: [Thing] {
         (self.things?.array as? [Thing]) ?? []
     }
+    /// Provides a getter and setter for changing the title of the list.
     var titleField: String {
         get {
             self.title ?? ""
@@ -21,6 +24,15 @@ extension ThingList {
             self.title = newValue
         }
     }
+    /// Creates a new ThingList in the context and adds four pre-populated default things.
+    ///
+    /// - Parameters:
+    ///     - context: The CoreData context for the ThingList
+    ///     - detailViewModel: The DetailViewModel being used by the app.
+    ///
+    /// - Returns: ThingList
+    ///
+    /// - Note:Constant strings  not in the detailViewModel are used here only because these are for testing - in a proper deployment, these would not be used.
     static func createNewList(context: NSManagedObjectContext, detailViewModel: DetailViewModel) -> ThingList {
         let thingList = ThingList(context: context)
         thingList.title = "Favourite Things"

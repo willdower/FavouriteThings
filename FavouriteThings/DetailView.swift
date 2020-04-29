@@ -12,12 +12,12 @@ import SwiftUI
 /// This struct holds the view that handles the showing of the details of each object. Strings that only change depending on unrelated display logic (language, etc) are sourced from the detailViewModel, whereas the rest is sourced from the model. It has a title, subtitle, image, image URL, and three fields and a notes field that all have editable labels.
 
 struct DetailView: View {
-    /// This variable is the ViewModel that handles the display logic.
+    /// This variable is the ViewModel that handles the static display logic.
     var detailViewModel: DetailViewModel
     /// This variable is a reference to the model object that the DetailView is displaying the details of.
     @ObservedObject var model: Thing
     
-    //Biggest element is the image, with a title, subtitle, and the release date, user rating and critic rating all centered at the bottom
+    //Biggest element is the image, with a title, subtitle, three fields and notes below
     var body: some View {
         return HStack {
             Spacer()
@@ -80,9 +80,3 @@ struct DetailView: View {
         }
     }
 }
-
-/*struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(gameDetailViewModel: GameDetailViewModel(game: VideoGame(title: "Minecraft", boxArt: Image("minecraftArt"), developer: "Mojang", releaseDate: "17/5/2009", userRating: 7.7, criticRating: 93)))
-    }
-}*/
