@@ -34,13 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "ObjectList")
+        let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores { (storeDescription, error) in
             if let errorExists = error as NSError? {
                 print("Failed to load/create database")
                 fatalError("\(errorExists): \(errorExists.userInfo)")
             }
         }
+        print("Loaded from CoreData")
         return container
     }()
     
@@ -49,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if context.hasChanges {
             do {
                 try context.save()
+                print("Changes saved to CoreData")
             }
             catch {
                 let cannotSaveError = error as NSError

@@ -11,8 +11,6 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    var viewModels = ItemViewModels()
-
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -26,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let context = appDelegate.persistentContainer.viewContext
         
         // Create the SwiftUI view that provides the window contents.
-        let masterView = MasterView(viewModels: viewModels).environment(\.managedObjectContext, context)
+        let masterView = MasterView().environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -63,5 +61,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("No current app delegate running")
+        }
+        appDelegate.saveContext()
     }
 }

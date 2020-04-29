@@ -11,6 +11,8 @@ import Foundation
 /// This struct is the viewModel that handles all of the static display logic.
 struct DetailViewModel {
     
+    /// Name of the placeholder image from assets
+    let placeholderImageName = "placeholderArt"
     /// String displayed when a value is unknown
     let unknownLabel = "Unknown"
     /// String displayed as load button

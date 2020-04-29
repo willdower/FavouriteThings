@@ -10,17 +10,23 @@ import Foundation
 import CoreData
 import SwiftUI
 
-extension Object {
+extension Thing {
     func getImage() -> Void {
         guard let url = URL(string: self.imageURL ?? "notarealURL"),
         let imageData = try? Data(contentsOf: url),
         let uiImage = UIImage(data: imageData) else {
             print("Failed to load image")
-            let placeholderImage = UIImage(named: "placeholderArt")
-            self.imageData = placeholderImage?.pngData()
+            self.imageData = nil
             return
         }
         self.imageData = uiImage.pngData()
+    }
+    func loadImage() -> Image? {
+        guard let imageDataExists = self.imageData,
+        let uiImage = UIImage(data: imageDataExists) else {
+            return nil
+        }
+        return Image(uiImage: uiImage)
     }
     var urlField: String {
         get {

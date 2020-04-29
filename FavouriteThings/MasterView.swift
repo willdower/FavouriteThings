@@ -11,10 +11,10 @@ import SwiftUI
 /// This struct holds the MasterView, which has a ListView embedded within a NavigationView.
 struct MasterView: View {
     /// This observed object is a reference to the object that holds all of the models and the detailViewModel
-    @ObservedObject var viewModels: ItemViewModels
+    let detailViewModel = DetailViewModel()
     @State private var mode = EditMode.inactive
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ObjectList.title, ascending: true)]) var objectList: FetchedResults<ObjectList>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ThingList.title, ascending: true)]) var thingList: FetchedResults<ThingList>
     
     var body: some View {
         NavigationView {
@@ -22,19 +22,30 @@ struct MasterView: View {
                 // Using @Environment did not work for some reason, had to use this with
                 // .environment below
                 if mode == .active {
-                    HStack {
-                        Text(viewModels.detailViewModel.titleEditPrepend)
-                        TextField(viewModels.detailViewModel.enterTitleLabel, text: $viewModels.listTitle)
-                            .font(Font.system(.largeTitle).bold())
-                    }
+                    TitleView(thingList: self.thingList.first ?? ThingList(context: context), detailViewModel: self.detailViewModel)
                 }
-                ListView(itemViewModels: viewModels)
-                .navigationBarTitle(mode == .active ? "" : viewModels.listTitle)
+                ListView(thingList: self.thingList.first ?? ThingList(context: context), detailViewModel: self.detailViewModel)
+                    .navigationBarTitle(mode == .active ? "" : self.thingList.first?.title ?? self.detailViewModel.enterTitleLabel)
                 .navigationBarItems(
                     leading: EditButton(),
                     trailing: Button(
                         action: {
-                            withAnimation { self.viewModels.addItem() }
+                            withAnimation {
+                                let thing = Thing(context: self.context)
+                                thing.title = self.detailViewModel.unknownLabel
+                                thing.subtitle = self.detailViewModel.unknownLabel
+                                thing.thingList = self.thingList.first
+                                do {
+                                    try self.context.save()
+                                    print("Saved to CoreData")
+                                }
+                                catch {
+                                    let cannotSaveError = error as NSError
+                                    print("Failed to save to CoreData")
+                                    print("\(cannotSaveError): \(cannotSaveError.userInfo)")
+                                }
+                                
+                            }
                         }
                     ) {
                         Image(systemName: "plus")

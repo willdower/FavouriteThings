@@ -9,8 +9,16 @@
 import Foundation
 import CoreData
 
-extension ObjectList {
-    var objectsArray: [Object] {
-        (self.objects?.array as? [Object]) ?? []
+extension ThingList {
+    var thingsArray: [Thing] {
+        (self.things?.array as? [Thing]) ?? []
+    }
+    var titleField: String {
+        get {
+            self.title ?? ""
+        }
+        set {
+            self.title = newValue
+        }
     }
 }
