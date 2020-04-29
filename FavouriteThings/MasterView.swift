@@ -41,11 +41,11 @@ struct MasterView: View {
                                 thing.thingList = self.thingList.first
                                 do {
                                     try self.context.save()
-                                    print("Saved to CoreData")
+                                    print("Saved new item to CoreData")
                                 }
                                 catch {
                                     let cannotSaveError = error as NSError
-                                    print("Failed to save to CoreData")
+                                    print("Failed to save new item to CoreData")
                                     print("\(cannotSaveError): \(cannotSaveError.userInfo)")
                                 }
                             }
