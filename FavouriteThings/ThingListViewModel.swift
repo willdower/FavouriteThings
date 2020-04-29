@@ -45,8 +45,9 @@ extension ThingList {
         thingOne.fieldOne = "Male"
         thingOne.fieldTwoLabel = "Job:"
         thingOne.fieldTwo = "Transponster"
-        thingOne.fieldThreeLabel = "Best Out of All the Friends:"
-        thingOne.notesLabel = "Yes"
+        thingOne.fieldThreeLabel = "Best Of All the Friends:"
+        thingOne.fieldThree = "Yes"
+        thingOne.notesLabel = detailViewModel.defaultNotesLabel
         thingOne.thingList = thingList
         
         let thingTwo = Thing(context: context)
