@@ -25,9 +25,19 @@ struct ListView: View {
                 }
             }.onDelete { indices in
                 indices.forEach { self.thingList.removeFromThings(at: $0) }
-            }/*.onMove { (indices, destination) in
-                self.objectList.objectsArray.move(fromOffsets: indices, toOffset: destination)
-            }*/
+            }.onMove { (indices, destination) in
+                let itemToMove = indices.first
+                if (itemToMove ?? 0 < destination) {
+                    let exchange: NSMutableOrderedSet = self.thingList.things?.mutableCopy() as! NSMutableOrderedSet
+                    exchange.moveObjects(at: indices, to: destination-1)
+                    self.thingList.things = exchange
+                }
+                else {
+                    let exchange: NSMutableOrderedSet = self.thingList.things?.mutableCopy() as! NSMutableOrderedSet
+                    exchange.moveObjects(at: indices, to: destination)
+                    self.thingList.things = exchange
+                }
+            }
         }
     }
 }
