@@ -22,9 +22,9 @@ struct MasterView: View {
                 // Using @Environment did not work for some reason, had to use this with
                 // .environment below
                 if mode == .active {
-                    TitleView(thingList: self.thingList.first ?? ThingList(context: context), detailViewModel: self.detailViewModel)
+                    TitleView(thingList: self.thingList.first ?? ThingList.createNewList(context: context, detailViewModel: detailViewModel), detailViewModel: self.detailViewModel)
                 }
-                ListView(thingList: self.thingList.first ?? ThingList(context: context), detailViewModel: self.detailViewModel)
+                ListView(thingList: self.thingList.first ?? ThingList.createNewList(context: context, detailViewModel: detailViewModel), detailViewModel: self.detailViewModel)
                     .navigationBarTitle(mode == .active ? "" : self.thingList.first?.title ?? self.detailViewModel.enterTitleLabel)
                 .navigationBarItems(
                     leading: EditButton(),
@@ -34,6 +34,10 @@ struct MasterView: View {
                                 let thing = Thing(context: self.context)
                                 thing.title = self.detailViewModel.unknownLabel
                                 thing.subtitle = self.detailViewModel.unknownLabel
+                                thing.fieldOneLabel = self.detailViewModel.defaultFieldOneLabel
+                                thing.fieldTwoLabel = self.detailViewModel.defaultFieldTwoLabel
+                                thing.fieldThreeLabel = self.detailViewModel.defaultFieldThreeLabel
+                                thing.notesLabel = self.detailViewModel.defaultNotesLabel
                                 thing.thingList = self.thingList.first
                                 do {
                                     try self.context.save()
@@ -44,7 +48,6 @@ struct MasterView: View {
                                     print("Failed to save to CoreData")
                                     print("\(cannotSaveError): \(cannotSaveError.userInfo)")
                                 }
-                                
                             }
                         }
                     ) {

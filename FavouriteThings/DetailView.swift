@@ -22,9 +22,9 @@ struct DetailView: View {
         return HStack {
             Spacer()
             VStack(alignment: .center) {
-                /*model.loadImage() ?? */Image(detailViewModel.placeholderImageName)
-                    /*.shadow(radius: 10)
-                    .aspectRatio(contentMode: .fit) as! Image*/
+                model.loadImage()?.resizable()
+                    .shadow(radius: 10)
+                    .aspectRatio(contentMode: .fit)
                 Spacer()
                     .frame(height: CGFloat(10))
                 HStack {

@@ -1,5 +1,5 @@
 //
-//  ObjectViewModel.swift
+//  ThingViewModel.swift
 //  FavouriteThings
 //
 //  Created by William Dower on 29/4/20.
@@ -24,7 +24,7 @@ extension Thing {
     func loadImage() -> Image? {
         guard let imageDataExists = self.imageData,
         let uiImage = UIImage(data: imageDataExists) else {
-            return nil
+            return Image("placeholderArt")
         }
         return Image(uiImage: uiImage)
     }

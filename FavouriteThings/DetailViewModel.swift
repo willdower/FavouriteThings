@@ -31,4 +31,12 @@ struct DetailViewModel {
     let enterFieldLabel = "Enter field label..."
     /// String displayed when list title is being edited
     let titleEditPrepend = "✏️"
+    /// Default Field One label
+    let defaultFieldOneLabel = "Field One"
+    /// Default Field Two label
+    let defaultFieldTwoLabel = "Field Two"
+    /// Default Field Three label
+    let defaultFieldThreeLabel = "Field Three"
+    /// Default Notes field label
+    let defaultNotesLabel = "Notes"
 }
