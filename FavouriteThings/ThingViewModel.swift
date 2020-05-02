@@ -11,26 +11,63 @@ import CoreData
 import SwiftUI
 
 extension Thing {
-    /// Gets the image from the web at thing's imageURL and saves it to thing.imageData as Data? with pngData().
+    /// Gets the image from the web at thing's imageURL and saves it to a file named uuid-image.txt
     func getImage() -> Void {
-        guard let url = URL(string: self.imageURL ?? "notarealURL"),
-        let imageData = try? Data(contentsOf: url),
-        let uiImage = UIImage(data: imageData) else {
-            print("Failed to load image")
-            self.imageData = nil
+        guard let uuid = self.id else {
+            print("Object does not have uuid")
             return
         }
-        self.imageData = uiImage.pngData()
+        
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentFolderURL = urls[0]
+        let fileURL = documentFolderURL.appendingPathComponent("\(uuid)-image.txt")
+        
+        guard let url = URL(string: self.imageURL ?? "notarealURL"),
+        let imageData = try? Data(contentsOf: url) else {
+            print("No image at url or url missing")
+            self.successfulURL = false
+            return
+        }
+        self.successfulURL = true
+        do {
+            try imageData.write(to: fileURL)
+        }
+        catch {
+            print("Failed to write image data to file")
+            return
+        }
     }
-    /// Loads the image data from the CoreData.
+    /// Loads the image data from the file system.
     ///
     /// - Returns: Image from imageData or placeholderArt Image
-    func loadImage() -> Image? {
-        guard let imageDataExists = self.imageData,
-        let uiImage = UIImage(data: imageDataExists) else {
+    func loadImage() -> Image {
+        guard let uuid = self.id else {
+            print("Object does not have id")
             return Image("placeholderArt")
         }
+        
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentFolderURL = urls[0]
+        let fileURL = documentFolderURL.appendingPathComponent("\(uuid)-image.txt")
+        
+        guard let imageData = try? Data(contentsOf: fileURL),
+            let uiImage = UIImage(data: imageData) else {
+            print("No image data saved to file or error reading image file, returning placeholder")
+            return Image("placeholderArt")
+        }
+        
         return Image(uiImage: uiImage)
+        
+    }
+    var image: Image {
+        get {
+            return loadImage()
+        }
+        set {
+            print("Test")
+        }
     }
     /// Provides getter and setter for changing a thing's URL
     var urlField: String {

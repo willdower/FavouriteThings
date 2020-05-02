@@ -18,7 +18,7 @@ struct RowView: View {
     
     var body: some View {
         HStack {
-            model.loadImage()?
+            model.loadImage()
                 .resizable()
                 .frame(width: 36, height: 54)
                 .shadow(radius: 5)

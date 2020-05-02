@@ -37,6 +37,7 @@ extension ThingList {
         let thingList = ThingList(context: context)
         thingList.title = "Favourite Things"
         let thingOne = Thing(context: context)
+        thingOne.id = UUID()
         thingOne.imageURL = "https://i.imgur.com/znmt1bu.jpg"
         thingOne.getImage()
         thingOne.title = "Chandler Bing"
@@ -51,6 +52,7 @@ extension ThingList {
         thingOne.thingList = thingList
         
         let thingTwo = Thing(context: context)
+        thingTwo.id = UUID()
         thingTwo.imageURL = "https://i.imgur.com/hDE2TIm.jpg"
         thingTwo.getImage()
         thingTwo.title = "Minecraft"
@@ -65,6 +67,7 @@ extension ThingList {
         thingTwo.thingList = thingList
         
         let thingThree = Thing(context: context)
+        thingThree.id = UUID()
         thingThree.imageURL = "https://i.imgur.com/buKG2h2.jpg"
         thingThree.getImage()
         thingThree.title = "Red Dead Redemption 2"
@@ -79,6 +82,7 @@ extension ThingList {
         thingThree.thingList = thingList
         
         let thingFour = Thing(context: context)
+        thingFour.id = UUID()
         thingFour.imageURL = "https://i.imgur.com/ZKqwV6e.jpg"
         thingFour.getImage()
         thingFour.title = "Pear"

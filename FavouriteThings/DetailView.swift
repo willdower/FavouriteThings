@@ -22,7 +22,7 @@ struct DetailView: View {
         return HStack {
             Spacer()
             VStack(alignment: .center) {
-                model.loadImage()?
+                model.loadImage()
                     .resizable()
                     .shadow(radius: 10)
                     .aspectRatio(contentMode: .fit)

@@ -32,6 +32,7 @@ struct MasterView: View {
                         action: {
                             withAnimation {
                                 let thing = Thing(context: self.context)
+                                thing.id = UUID()
                                 thing.title = self.detailViewModel.unknownLabel
                                 thing.subtitle = self.detailViewModel.unknownLabel
                                 thing.fieldOneLabel = self.detailViewModel.defaultFieldOneLabel
