@@ -46,6 +46,10 @@
 
 /* Begin PBXFileReference section */
 		3D1083442457FD6E00E16E60 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		3D2FC2B2245E6B7000038A99 /* ThingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThingList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D2FC2B3245E6B7000038A99 /* ThingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3D2FC2B4245E6B7000038A99 /* Thing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D2FC2B5245E6B7000038A99 /* Thing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3D339B1F2458EF8B00EE3218 /* ThingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingListViewModel.swift; sourceTree = "<group>"; };
 		3D339B212458F1BD00EE3218 /* ThingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingViewModel.swift; sourceTree = "<group>"; };
 		3D592E7E240F29C400AAF8CD /* FavouriteThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +104,10 @@
 		3D592E75240F29C400AAF8CD = {
 			isa = PBXGroup;
 			children = (
+				3D2FC2B2245E6B7000038A99 /* ThingList+CoreDataClass.swift */,
+				3D2FC2B3245E6B7000038A99 /* ThingList+CoreDataProperties.swift */,
+				3D2FC2B4245E6B7000038A99 /* Thing+CoreDataClass.swift */,
+				3D2FC2B5245E6B7000038A99 /* Thing+CoreDataProperties.swift */,
 				3D592E80240F29C400AAF8CD /* FavouriteThings */,
 				3D592E97240F29C500AAF8CD /* FavouriteThingsTests */,
 				3D592EA2240F29C500AAF8CD /* FavouriteThingsUITests */,

@@ -61,14 +61,6 @@ extension Thing {
         return Image(uiImage: uiImage)
         
     }
-    var image: Image {
-        get {
-            return loadImage()
-        }
-        set {
-            print("Test")
-        }
-    }
     /// Provides getter and setter for changing a thing's URL
     var urlField: String {
         get {
