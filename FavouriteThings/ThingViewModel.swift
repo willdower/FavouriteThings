@@ -54,7 +54,6 @@ extension Thing {
         
         guard let imageData = try? Data(contentsOf: fileURL),
             let uiImage = UIImage(data: imageData) else {
-            print("No image data saved to file or error reading image file, returning placeholder")
             return Image("placeholderArt")
         }
         
