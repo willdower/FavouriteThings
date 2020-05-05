@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import SwiftUI
+import CoreLocation
 
 extension Thing {
     /// Gets the image from the web at thing's imageURL and saves it to a file named uuid-image.txt
@@ -59,6 +60,33 @@ extension Thing {
         
         return Image(uiImage: uiImage)
         
+    }
+    /// Provides getter and setter for changing a thing's latitude
+    var latitudeStringField: String {
+        get {
+            self.latitudeString ?? ""
+        }
+        set {
+            self.latitudeString = newValue
+        }
+    }
+    /// Provides getter and setter for changing a thing's longitude
+    var longitudeStringField: String {
+        get {
+            self.longitudeString ?? ""
+        }
+        set {
+            self.longitudeString = newValue
+        }
+    }
+    /// Provides getter and setter for changing a thing's location name
+    var locationStringField: String {
+        get {
+            self.locationName ?? ""
+        }
+        set {
+            self.locationName = newValue
+        }
     }
     /// Provides getter and setter for changing a thing's URL
     var urlField: String {

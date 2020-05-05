@@ -9,6 +9,9 @@
         <attribute name="fieldTwoLabel" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="latitudeString" optional="YES" attributeType="String"/>
+        <attribute name="locationName" optional="YES" attributeType="String"/>
+        <attribute name="longitudeString" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="notesLabel" optional="YES" attributeType="String"/>
         <attribute name="subtitle" optional="YES" attributeType="String"/>
@@ -21,7 +24,7 @@
         <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Thing" inverseName="thingList" inverseEntity="Thing"/>
     </entity>
     <elements>
-        <element name="Thing" positionX="-63" positionY="-18" width="128" height="253"/>
+        <element name="Thing" positionX="-63" positionY="-18" width="128" height="298"/>
         <element name="ThingList" positionX="-303.75" positionY="28.859375" width="128" height="73"/>
     </elements>
 </model>

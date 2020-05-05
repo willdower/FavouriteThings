@@ -24,7 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let context = appDelegate.persistentContainer.viewContext
         
         // Create the SwiftUI view that provides the window contents.
-        let masterView = MasterView().environment(\.managedObjectContext, context)
+        /// Object used to get keyboard size
+        let keyboard = Keyboard()
+        let masterView = MasterView(keyboard: keyboard).environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

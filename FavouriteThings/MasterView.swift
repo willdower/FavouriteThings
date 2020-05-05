@@ -10,6 +10,8 @@ import SwiftUI
 
 /// This struct holds the MasterView, which has a ListView embedded within a NavigationView.
 struct MasterView: View {
+    /// Object used to get keyboard size
+    @ObservedObject var keyboard: Keyboard
     /// This observed object is a reference to the object that holds all of the models and the detailViewModel
     let detailViewModel = DetailViewModel()
     @State private var mode = EditMode.inactive
@@ -24,7 +26,7 @@ struct MasterView: View {
                 if mode == .active {
                     TitleView(thingList: self.thingList.first ?? ThingList.createNewList(context: context, detailViewModel: detailViewModel), detailViewModel: self.detailViewModel)
                 }
-                ListView(thingList: self.thingList.first ?? ThingList.createNewList(context: context, detailViewModel: detailViewModel), detailViewModel: self.detailViewModel)
+                ListView(keyboard: keyboard, thingList: self.thingList.first ?? ThingList.createNewList(context: context, detailViewModel: detailViewModel), detailViewModel: self.detailViewModel)
                     .navigationBarTitle(mode == .active ? "" : self.thingList.first?.title ?? self.detailViewModel.enterTitleLabel)
                 .navigationBarItems(
                     leading: EditButton(),

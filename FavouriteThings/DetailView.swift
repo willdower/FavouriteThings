@@ -12,6 +12,8 @@ import SwiftUI
 /// This struct holds the view that handles the showing of the details of each object. Strings that only change depending on unrelated display logic (language, etc) are sourced from the detailViewModel, whereas the rest is sourced from the model. It has a title, subtitle, image, image URL, and three fields and a notes field that all have editable labels.
 
 struct DetailView: View {
+    /// Object used to get keyboard size
+    @ObservedObject var keyboard: Keyboard
     /// This variable is the ViewModel that handles the static display logic.
     var detailViewModel: DetailViewModel
     /// This variable is a reference to the model object that the DetailView is displaying the details of.
@@ -76,8 +78,8 @@ struct DetailView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 Spacer()
-                    .frame(height: 15)
-            }
+                    .frame(height: keyboard.frame.size.height + 15)
+            }.animation(.default)
         }
     }
 }

@@ -11,6 +11,8 @@ import SwiftUI
 
 /// This struct holds the view that generates the list of objects on the main screen of the app. Each row has a leading thumbnail image, title and a trailing italic subtitle.
 struct ListView: View {
+    /// Object used to get keyboard size
+    @ObservedObject var keyboard: Keyboard
     /// This variable holds the reference to the list
     @ObservedObject var thingList: ThingList
     /// The context used for CoreData persistence.
@@ -22,7 +24,7 @@ struct ListView: View {
         List {
             ForEach(thingList.thingsArray, id: \.self) { model in //Creates a list item for each game
                 //Each list item has a thumbnail, title and developer on the far right
-                NavigationLink(destination: DetailView(detailViewModel: self.detailViewModel, model: model)) {
+                NavigationLink(destination: DetailView(keyboard: self.keyboard, detailViewModel: self.detailViewModel, model: model)) {
                     RowView(model: model, detailViewModel: self.detailViewModel)
                 }
             }.onDelete { indices in
