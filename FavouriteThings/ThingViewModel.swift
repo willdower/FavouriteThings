@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 import SwiftUI
 import CoreLocation
+import MapKit
 
 extension Thing {
     /// Gets the image from the web at thing's imageURL and saves it to a file named uuid-image.txt
@@ -221,6 +222,30 @@ extension Thing {
         }
         set {
             self.notesLabel = newValue
+        }
+    }
+}
+
+extension Thing: MKMapViewDelegate {
+        
+    public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        guard !appDelegate.isUpdating else {
+            return
+        }
+        guard !appDelegate.isJumping else {
+            return
+        }
+        print("isUpdating to true")
+        appDelegate.isUpdating = true
+        let centre = mapView.centerCoordinate
+        latitude = centre.latitude
+        longitude = centre.longitude
+        latitudeString = "\(centre.latitude)"
+        longitudeString = "\(centre.longitude)"
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(250)) {
+            print("isUpdating to false")
+            appDelegate.isUpdating = false
         }
     }
 }

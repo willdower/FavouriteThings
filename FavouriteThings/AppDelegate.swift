@@ -11,8 +11,14 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    // Here is the only place I could put these variables.
+    // In Rene's example, he uses an isUpdating property of the model's class
+    // This doesn't work in a CoreData scenario, however, as apparently all CoreData properties are @Published
+    // The changing of isUpdating back to false then triggers a view update which causes the loop to start up again
+    // This is a location accessible from everywhere for these variables.
+    var isUpdating: Bool = false
+    var isJumping: Bool = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

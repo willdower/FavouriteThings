@@ -68,7 +68,7 @@ struct DetailView: View {
                     VStack(alignment: .leading) {
                         NavigationLink(destination: LocationView(model: self.model, keyboard: keyboard, detailViewModel: self.detailViewModel)) {
                             Text(self.model.locationName ?? self.detailViewModel.unknownLabel)
-                        }
+                        }.simultaneousGesture(TapGesture().onEnded({ self.detailViewModel.prepareIsJumpingVariable() }))
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldOneField)
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldTwoField)
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldThreeField)

@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+import Dispatch
 
 /// This struct is the viewModel that handles all of the static display logic.
 struct DetailViewModel {
@@ -49,8 +50,16 @@ struct DetailViewModel {
     let defaultLongitudeLabel = "Longitude:"
     /// Default Notes field label
     let defaultNotesLabel = "Notes"
+    /// Default text for button that updates the location name based on the coordinates
+    let updateLocationFromCoordinates = "Update Location From Coordinates"
     
     func getLocationFromName(locationName: String, model: Thing) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.isJumping = true
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(2000)) {
+            appDelegate.isJumping = false
+        }
+        
         let geocoder = CLGeocoder()
         let position = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
         let region = CLCircularRegion(center: position, radius: 2_000_000, identifier: "\(position)")
@@ -69,6 +78,12 @@ struct DetailViewModel {
     }
     
     func getLocationFromCoordinates(model: Thing) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.isJumping = true
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(2000)) {
+            appDelegate.isJumping = false
+        }
+        
         model.latitude = Double(model.latitudeString ?? "") ?? 0.0
         model.longitude = Double(model.longitudeString ?? "") ?? 0.0
         let geocoder = CLGeocoder()
@@ -79,6 +94,17 @@ struct DetailViewModel {
                 return
             }
             model.locationName = placemark.name ?? placemark.locality ?? placemark.subLocality ?? placemark.administrativeArea ?? placemark.country ?? self.unknownLabel
+        }
+    }
+    
+    func prepareIsJumpingVariable() {
+        // Not sure exactly why this function is required, it seems as though if isJumping is true
+        // as the LocationView opens, it causes isJumping not to work for the first title/location input
+        // until enter is pressed.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.isJumping = true
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(100)) {
+            appDelegate.isJumping = false
         }
     }
     

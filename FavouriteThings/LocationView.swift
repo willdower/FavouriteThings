@@ -40,6 +40,11 @@ struct LocationView: View {
                     })
                 }
             }
+            Button(action: {
+                self.detailViewModel.getLocationFromCoordinates(model: self.model)
+            }, label: {
+                Text(self.detailViewModel.updateLocationFromCoordinates)
+            })
             Spacer()
                 .frame(height: keyboard.frame.size.height + 15)
         }.animation(.default)
