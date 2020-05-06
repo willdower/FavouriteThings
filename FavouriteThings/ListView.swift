@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
 
 /// This struct holds the view that generates the list of objects on the main screen of the app. Each row has a leading thumbnail image, title and a trailing italic subtitle.
 struct ListView: View {
@@ -24,7 +25,7 @@ struct ListView: View {
         List {
             ForEach(thingList.thingsArray, id: \.self) { model in //Creates a list item for each game
                 //Each list item has a thumbnail, title and developer on the far right
-                NavigationLink(destination: DetailView(keyboard: self.keyboard, detailViewModel: self.detailViewModel, model: model)) {
+                NavigationLink(destination: DetailView(keyboard: self.keyboard, detailViewModel: self.detailViewModel, model: model, currentPosition: CLLocationCoordinate2D(latitude: Double(model.latitudeString ?? "") ?? 0.0, longitude: Double(model.latitudeString ?? "") ?? 0.0))) {
                     RowView(model: model, detailViewModel: self.detailViewModel)
                 }
             }.onDelete { indices in

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreLocation
+import SwiftUI
 
 /// This struct is the viewModel that handles all of the static display logic.
 struct DetailViewModel {
@@ -32,11 +34,29 @@ struct DetailViewModel {
     /// String displayed when list title is being edited
     let titleEditPrepend = "✏️"
     /// Default Field One label
-    let defaultFieldOneLabel = "Field One"
+    let defaultFieldOneLabel = "Field One:"
     /// Default Field Two label
-    let defaultFieldTwoLabel = "Field Two"
+    let defaultFieldTwoLabel = "Field Two:"
     /// Default Field Three label
-    let defaultFieldThreeLabel = "Field Three"
+    let defaultFieldThreeLabel = "Field Three:"
+    /// Default Location Name label
+    let defaultLocationNameLabel = "Location Name:"
     /// Default Notes field label
     let defaultNotesLabel = "Notes"
+    
+    func getLocationFromName(currentPosition: CLLocationCoordinate2D, locationName: String, model: Thing) {
+        let geocoder = CLGeocoder()
+        let region = CLCircularRegion(center: currentPosition, radius: 2_000_000, identifier: "\(currentPosition)")
+        geocoder.geocodeAddressString(locationName, in: region) { (placemarks, error) in
+            guard let location = placemarks?.first?.location else {
+                print("Error locating '\(locationName)': '\(error.map {"\($0)"} ?? "<unknown error>")'")
+                return
+            }
+            let position = location.coordinate
+            model.latitudeString = "\(position.latitude)"
+            model.longitudeString = "\(position.longitude)"
+        }
+        return
+    }
+    
 }

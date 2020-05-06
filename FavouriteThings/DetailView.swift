@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
 
 /// This struct holds the view that handles the showing of the details of each object. Strings that only change depending on unrelated display logic (language, etc) are sourced from the detailViewModel, whereas the rest is sourced from the model. It has a title, subtitle, image, image URL, and three fields and a notes field that all have editable labels.
 
@@ -18,6 +19,7 @@ struct DetailView: View {
     var detailViewModel: DetailViewModel
     /// This variable is a reference to the model object that the DetailView is displaying the details of.
     @ObservedObject var model: Thing
+    @State var currentPosition: CLLocationCoordinate2D
     
     //Biggest element is the image, with a title, subtitle, three fields and notes below
     var body: some View {
@@ -62,11 +64,20 @@ struct DetailView: View {
                             .font(.system(size: 15, weight: .heavy))
                         TextField(detailViewModel.enterFieldLabel, text: $model.fieldThreeLabelField)
                             .font(.system(size: 15, weight: .heavy))
+                        TextField(detailViewModel.enterFieldLabel, text: $model.locationNameLabelField)
+                            .font(.system(size: 15, weight: .heavy))
                     }
                     VStack(alignment: .leading) {
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldOneField)
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldTwoField)
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldThreeField)
+                        TextField(detailViewModel.enterInfoLabel, text: $model.locationNameField, onCommit: {
+                            self.detailViewModel.getLocationFromName(currentPosition: self.currentPosition, locationName: self.model.locationName ?? "", model: self.model)
+                            self.currentPosition.latitude = Double(self.model.latitudeString ?? "") ?? 0.0
+                            self.currentPosition.longitude = Double(self.model.longitudeString ?? "") ?? 0.0
+                        })
+                        Text(model.latitudeString ?? "")
+                        Text(model.longitudeString ?? "")
                     }
                 }
                 Spacer()
