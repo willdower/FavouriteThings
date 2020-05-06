@@ -61,6 +61,24 @@ extension Thing {
         return Image(uiImage: uiImage)
         
     }
+    /// Provides getter and setter for changing a thing's latitude label
+    var latitudeLabelField: String {
+        get {
+            self.latitudeLabel ?? ""
+        }
+        set {
+            self.latitudeLabel = newValue
+        }
+    }
+    /// Provides getter and setter for changing a thing's longitude label
+    var longitudeLabelField: String {
+        get {
+            self.longitudeLabel ?? ""
+        }
+        set {
+            self.longitudeLabel = newValue
+        }
+    }
     /// Provides getter and setter for changing a thing's location name label
     var locationNameLabelField: String {
         get {

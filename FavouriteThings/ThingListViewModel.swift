@@ -49,6 +49,8 @@ extension ThingList {
         thingOne.fieldThreeLabel = "Best Of All the Friends:"
         thingOne.fieldThree = "Yes"
         thingOne.locationNameLabel = "Location Name:"
+        thingOne.latitudeLabel = "Latitude:"
+        thingOne.longitudeLabel = "Longitude:"
         thingOne.notesLabel = detailViewModel.defaultNotesLabel
         thingOne.thingList = thingList
         
@@ -65,6 +67,8 @@ extension ThingList {
         thingTwo.fieldThreeLabel = "Critic Rating:"
         thingTwo.fieldThree = "93"
         thingTwo.locationNameLabel = "Location Name:"
+        thingTwo.latitudeLabel = "Latitude:"
+        thingTwo.longitudeLabel = "Longitude:"
         thingTwo.notesLabel = detailViewModel.defaultNotesLabel
         thingTwo.thingList = thingList
         
@@ -81,6 +85,8 @@ extension ThingList {
         thingThree.fieldThreeLabel = "Critic Rating:"
         thingThree.fieldThree = "97"
         thingThree.locationNameLabel = "Location Name:"
+        thingThree.latitudeLabel = "Latitude:"
+        thingThree.longitudeLabel = "Longitude:"
         thingThree.notesLabel = detailViewModel.defaultNotesLabel
         thingThree.thingList = thingList
         
@@ -97,6 +103,8 @@ extension ThingList {
         thingFour.fieldThreeLabel = "Is it spicy?"
         thingFour.fieldThree = "No"
         thingFour.locationNameLabel = "Location Name:"
+        thingFour.latitudeLabel = "Latitude:"
+        thingFour.longitudeLabel = "Longitude:"
         thingFour.notesLabel = detailViewModel.defaultNotesLabel
         thingFour.thingList = thingList
         

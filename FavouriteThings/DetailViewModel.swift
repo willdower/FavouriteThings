@@ -41,6 +41,10 @@ struct DetailViewModel {
     let defaultFieldThreeLabel = "Field Three:"
     /// Default Location Name label
     let defaultLocationNameLabel = "Location Name:"
+    /// Default Latitude label
+    let defaultLatitudeLabel = "Latitude:"
+    /// Default Longitude Label
+    let defaultLongitudeLabel = "Longitude:"
     /// Default Notes field label
     let defaultNotesLabel = "Notes"
     
@@ -57,6 +61,18 @@ struct DetailViewModel {
             model.longitudeString = "\(position.longitude)"
         }
         return
+    }
+    
+    func getLocationFromCoordinates(currentPosition: CLLocationCoordinate2D, model: Thing) {
+        let geocoder = CLGeocoder()
+        let position = CLLocation(latitude: currentPosition.latitude, longitude: currentPosition.longitude)
+        geocoder.reverseGeocodeLocation(position) { (placemarks, error) in
+            guard let placemark = placemarks?.first else {
+                print("Error locating \(currentPosition.latitude) / \(currentPosition.longitude): \(error.map {"\($0)"} ?? "<unknown error>")")
+                return
+            }
+            model.locationName = placemark.name ?? placemark.locality ?? placemark.subLocality ?? placemark.administrativeArea ?? placemark.country ?? self.unknownLabel
+        }
     }
     
 }

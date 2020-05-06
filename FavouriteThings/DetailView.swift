@@ -66,6 +66,10 @@ struct DetailView: View {
                             .font(.system(size: 15, weight: .heavy))
                         TextField(detailViewModel.enterFieldLabel, text: $model.locationNameLabelField)
                             .font(.system(size: 15, weight: .heavy))
+                        TextField(detailViewModel.enterFieldLabel, text: $model.latitudeLabelField)
+                        .font(.system(size: 15, weight: .heavy))
+                        TextField(detailViewModel.enterFieldLabel, text: $model.longitudeLabelField)
+                        .font(.system(size: 15, weight: .heavy))
                     }
                     VStack(alignment: .leading) {
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldOneField)
@@ -76,8 +80,16 @@ struct DetailView: View {
                             self.currentPosition.latitude = Double(self.model.latitudeString ?? "") ?? 0.0
                             self.currentPosition.longitude = Double(self.model.longitudeString ?? "") ?? 0.0
                         })
-                        Text(model.latitudeString ?? "")
-                        Text(model.longitudeString ?? "")
+                        TextField(detailViewModel.enterInfoLabel, text: $model.latitudeStringField, onCommit: {
+                            self.currentPosition.latitude = Double(self.model.latitudeString ?? "") ?? 0.0
+                            self.currentPosition.longitude = Double(self.model.longitudeString ?? "") ?? 0.0
+                            self.detailViewModel.getLocationFromCoordinates(currentPosition: self.currentPosition, model: self.model)
+                        })
+                        TextField(detailViewModel.enterInfoLabel, text: $model.longitudeStringField, onCommit: {
+                            self.currentPosition.latitude = Double(self.model.latitudeString ?? "") ?? 0.0
+                            self.currentPosition.longitude = Double(self.model.longitudeString ?? "") ?? 0.0
+                            self.detailViewModel.getLocationFromCoordinates(currentPosition: self.currentPosition, model: self.model)
+                        })
                     }
                 }
                 Spacer()
