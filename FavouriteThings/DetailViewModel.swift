@@ -39,6 +39,8 @@ struct DetailViewModel {
     let defaultFieldTwoLabel = "Field Two:"
     /// Default Field Three label
     let defaultFieldThreeLabel = "Field Three:"
+    /// Default overall location label
+    let defaultLocationLabel = "Location:"
     /// Default Location Name label
     let defaultLocationNameLabel = "Location Name:"
     /// Default Latitude label
@@ -48,27 +50,32 @@ struct DetailViewModel {
     /// Default Notes field label
     let defaultNotesLabel = "Notes"
     
-    func getLocationFromName(currentPosition: CLLocationCoordinate2D, locationName: String, model: Thing) {
+    func getLocationFromName(locationName: String, model: Thing) {
         let geocoder = CLGeocoder()
-        let region = CLCircularRegion(center: currentPosition, radius: 2_000_000, identifier: "\(currentPosition)")
+        let position = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
+        let region = CLCircularRegion(center: position, radius: 2_000_000, identifier: "\(position)")
         geocoder.geocodeAddressString(locationName, in: region) { (placemarks, error) in
             guard let location = placemarks?.first?.location else {
                 print("Error locating '\(locationName)': '\(error.map {"\($0)"} ?? "<unknown error>")'")
                 return
             }
             let position = location.coordinate
+            model.latitude = position.latitude
+            model.longitude = position.longitude
             model.latitudeString = "\(position.latitude)"
             model.longitudeString = "\(position.longitude)"
         }
         return
     }
     
-    func getLocationFromCoordinates(currentPosition: CLLocationCoordinate2D, model: Thing) {
+    func getLocationFromCoordinates(model: Thing) {
+        model.latitude = Double(model.latitudeString ?? "") ?? 0.0
+        model.longitude = Double(model.longitudeString ?? "") ?? 0.0
         let geocoder = CLGeocoder()
-        let position = CLLocation(latitude: currentPosition.latitude, longitude: currentPosition.longitude)
+        let position = CLLocation(latitude: model.latitude, longitude: model.longitude)
         geocoder.reverseGeocodeLocation(position) { (placemarks, error) in
             guard let placemark = placemarks?.first else {
-                print("Error locating \(currentPosition.latitude) / \(currentPosition.longitude): \(error.map {"\($0)"} ?? "<unknown error>")")
+                print("Error locating \(model.latitude) / \(model.longitude): \(error.map {"\($0)"} ?? "<unknown error>")")
                 return
             }
             model.locationName = placemark.name ?? placemark.locality ?? placemark.subLocality ?? placemark.administrativeArea ?? placemark.country ?? self.unknownLabel

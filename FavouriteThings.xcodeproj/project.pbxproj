@@ -10,6 +10,8 @@
 		3D1083452457FD6E00E16E60 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D1083432457FD6E00E16E60 /* DataModel.xcdatamodeld */; };
 		3D2FC2BB24621C1D00038A99 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2FC2BA24621C1D00038A99 /* CoreLocation.framework */; };
 		3D2FC2BF246225F700038A99 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2FC2BE246225F700038A99 /* Keyboard.swift */; };
+		3D2FC2C124626B1900038A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2FC2C024626B1900038A99 /* MapView.swift */; };
+		3D2FC2C32462805200038A99 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2FC2C22462805200038A99 /* LocationView.swift */; };
 		3D339B202458EF8B00EE3218 /* ThingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D339B1F2458EF8B00EE3218 /* ThingListViewModel.swift */; };
 		3D339B222458F1BD00EE3218 /* ThingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D339B212458F1BD00EE3218 /* ThingViewModel.swift */; };
 		3D592E82240F29C400AAF8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592E81240F29C400AAF8CD /* AppDelegate.swift */; };
@@ -54,6 +56,8 @@
 		3D2FC2B5245E6B7000038A99 /* Thing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3D2FC2BA24621C1D00038A99 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		3D2FC2BE246225F700038A99 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		3D2FC2C024626B1900038A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3D2FC2C22462805200038A99 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		3D339B1F2458EF8B00EE3218 /* ThingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingListViewModel.swift; sourceTree = "<group>"; };
 		3D339B212458F1BD00EE3218 /* ThingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingViewModel.swift; sourceTree = "<group>"; };
 		3D592E7E240F29C400AAF8CD /* FavouriteThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +143,8 @@
 				3D592E83240F29C400AAF8CD /* SceneDelegate.swift */,
 				3DF67C15244FDBF4001EDA3B /* RowView.swift */,
 				3D592E85240F29C400AAF8CD /* MasterView.swift */,
+				3D2FC2C024626B1900038A99 /* MapView.swift */,
+				3D2FC2C22462805200038A99 /* LocationView.swift */,
 				3D9A89E12459528F0081FA6A /* TitleView.swift */,
 				3D592EB324107C6C00AAF8CD /* DetailView.swift */,
 				3D73143E2437304100C55C6C /* ListView.swift */,
@@ -326,12 +332,14 @@
 				3D1083452457FD6E00E16E60 /* DataModel.xcdatamodeld in Sources */,
 				3D592E82240F29C400AAF8CD /* AppDelegate.swift in Sources */,
 				3D339B222458F1BD00EE3218 /* ThingViewModel.swift in Sources */,
+				3D2FC2C124626B1900038A99 /* MapView.swift in Sources */,
 				3D592E84240F29C400AAF8CD /* SceneDelegate.swift in Sources */,
 				3D592E86240F29C400AAF8CD /* MasterView.swift in Sources */,
 				3DF67C16244FDBF4001EDA3B /* RowView.swift in Sources */,
 				3D339B202458EF8B00EE3218 /* ThingListViewModel.swift in Sources */,
 				3D592EB424107C6C00AAF8CD /* DetailView.swift in Sources */,
 				3D7A7B8F24173ECD00CB1986 /* DetailViewModel.swift in Sources */,
+				3D2FC2C32462805200038A99 /* LocationView.swift in Sources */,
 				3D2FC2BF246225F700038A99 /* Keyboard.swift in Sources */,
 				3D9A89E22459528F0081FA6A /* TitleView.swift in Sources */,
 			);

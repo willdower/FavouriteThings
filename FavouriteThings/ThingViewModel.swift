@@ -79,6 +79,15 @@ extension Thing {
             self.longitudeLabel = newValue
         }
     }
+    /// Provides getter and setter for changing a thing's location label
+    var locationLabelField: String {
+        get {
+            self.locationLabel ?? ""
+        }
+        set {
+            self.locationLabel = newValue
+        }
+    }
     /// Provides getter and setter for changing a thing's location name label
     var locationNameLabelField: String {
         get {

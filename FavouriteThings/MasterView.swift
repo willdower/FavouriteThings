@@ -40,6 +40,7 @@ struct MasterView: View {
                                 thing.fieldOneLabel = self.detailViewModel.defaultFieldOneLabel
                                 thing.fieldTwoLabel = self.detailViewModel.defaultFieldTwoLabel
                                 thing.fieldThreeLabel = self.detailViewModel.defaultFieldThreeLabel
+                                thing.locationLabel = self.detailViewModel.defaultLocationLabel
                                 thing.locationNameLabel = self.detailViewModel.defaultLocationNameLabel
                                 thing.latitudeLabel = self.detailViewModel.defaultLatitudeLabel
                                 thing.longitudeLabel = self.detailViewModel.defaultLongitudeLabel

@@ -9,10 +9,13 @@
         <attribute name="fieldTwoLabel" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="latitudeLabel" optional="YES" attributeType="String"/>
         <attribute name="latitudeString" optional="YES" attributeType="String"/>
+        <attribute name="locationLabel" optional="YES" attributeType="String"/>
         <attribute name="locationName" optional="YES" attributeType="String"/>
         <attribute name="locationNameLabel" optional="YES" attributeType="String"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitudeLabel" optional="YES" attributeType="String"/>
         <attribute name="longitudeString" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
@@ -27,7 +30,7 @@
         <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Thing" inverseName="thingList" inverseEntity="Thing"/>
     </entity>
     <elements>
-        <element name="Thing" positionX="-63" positionY="-18" width="128" height="343"/>
+        <element name="Thing" positionX="-63" positionY="-18" width="128" height="388"/>
         <element name="ThingList" positionX="-303.75" positionY="28.859375" width="128" height="73"/>
     </elements>
 </model>

@@ -19,7 +19,6 @@ struct DetailView: View {
     var detailViewModel: DetailViewModel
     /// This variable is a reference to the model object that the DetailView is displaying the details of.
     @ObservedObject var model: Thing
-    @State var currentPosition: CLLocationCoordinate2D
     
     //Biggest element is the image, with a title, subtitle, three fields and notes below
     var body: some View {
@@ -49,7 +48,6 @@ struct DetailView: View {
                     TextField(detailViewModel.enterTitleLabel, text: $model.titleField)
                         .font(.largeTitle)
                         .frame(height: 20)
-                    
                     TextField(detailViewModel.enterSubtitleLabel, text: $model.subtitleField)
                         .font(.caption)
                         .frame(height: 10)
@@ -58,38 +56,22 @@ struct DetailView: View {
                 }
                 HStack {
                     VStack(alignment: .trailing) {
+                        TextField(detailViewModel.enterFieldLabel, text: $model.locationLabelField)
+                            .font(.system(size: 15, weight: .heavy))
                         TextField(detailViewModel.enterFieldLabel, text: $model.fieldOneLabelField)
                             .font(.system(size: 15, weight: .heavy))
                         TextField(detailViewModel.enterFieldLabel, text: $model.fieldTwoLabelField)
                             .font(.system(size: 15, weight: .heavy))
                         TextField(detailViewModel.enterFieldLabel, text: $model.fieldThreeLabelField)
                             .font(.system(size: 15, weight: .heavy))
-                        TextField(detailViewModel.enterFieldLabel, text: $model.locationNameLabelField)
-                            .font(.system(size: 15, weight: .heavy))
-                        TextField(detailViewModel.enterFieldLabel, text: $model.latitudeLabelField)
-                        .font(.system(size: 15, weight: .heavy))
-                        TextField(detailViewModel.enterFieldLabel, text: $model.longitudeLabelField)
-                        .font(.system(size: 15, weight: .heavy))
                     }
                     VStack(alignment: .leading) {
+                        NavigationLink(destination: LocationView(model: self.model, keyboard: keyboard, detailViewModel: self.detailViewModel)) {
+                            Text(self.model.locationName ?? self.detailViewModel.unknownLabel)
+                        }
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldOneField)
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldTwoField)
                         TextField(detailViewModel.enterInfoLabel, text: $model.fieldThreeField)
-                        TextField(detailViewModel.enterInfoLabel, text: $model.locationNameField, onCommit: {
-                            self.detailViewModel.getLocationFromName(currentPosition: self.currentPosition, locationName: self.model.locationName ?? "", model: self.model)
-                            self.currentPosition.latitude = Double(self.model.latitudeString ?? "") ?? 0.0
-                            self.currentPosition.longitude = Double(self.model.longitudeString ?? "") ?? 0.0
-                        })
-                        TextField(detailViewModel.enterInfoLabel, text: $model.latitudeStringField, onCommit: {
-                            self.currentPosition.latitude = Double(self.model.latitudeString ?? "") ?? 0.0
-                            self.currentPosition.longitude = Double(self.model.longitudeString ?? "") ?? 0.0
-                            self.detailViewModel.getLocationFromCoordinates(currentPosition: self.currentPosition, model: self.model)
-                        })
-                        TextField(detailViewModel.enterInfoLabel, text: $model.longitudeStringField, onCommit: {
-                            self.currentPosition.latitude = Double(self.model.latitudeString ?? "") ?? 0.0
-                            self.currentPosition.longitude = Double(self.model.longitudeString ?? "") ?? 0.0
-                            self.detailViewModel.getLocationFromCoordinates(currentPosition: self.currentPosition, model: self.model)
-                        })
                     }
                 }
                 Spacer()
