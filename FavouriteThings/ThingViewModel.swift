@@ -226,8 +226,10 @@ extension Thing {
     }
 }
 
+/// Extension for dealing with mapView
 extension Thing: MKMapViewDelegate {
-        
+    
+    /// Called when the mapView that the thing is set as delegste for has its region changed (e.g. on a scroll or jump)
     public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         guard !appDelegate.isUpdating else {
@@ -236,7 +238,6 @@ extension Thing: MKMapViewDelegate {
         guard !appDelegate.isJumping else {
             return
         }
-        print("isUpdating to true")
         appDelegate.isUpdating = true
         let centre = mapView.centerCoordinate
         latitude = centre.latitude
@@ -244,7 +245,6 @@ extension Thing: MKMapViewDelegate {
         latitudeString = "\(centre.latitude)"
         longitudeString = "\(centre.longitude)"
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(250)) {
-            print("isUpdating to false")
             appDelegate.isUpdating = false
         }
     }

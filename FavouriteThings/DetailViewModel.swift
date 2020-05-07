@@ -53,6 +53,7 @@ struct DetailViewModel {
     /// Default text for button that updates the location name based on the coordinates
     let updateLocationFromCoordinates = "Update Location From Coordinates"
     
+    /// Gets the location coordinates from just a location name (geocoding)
     func getLocationFromName(locationName: String, model: Thing) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.isJumping = true
@@ -77,6 +78,7 @@ struct DetailViewModel {
         return
     }
     
+    /// Gets a location's name based on coordinates (reverse geo-code)
     func getLocationFromCoordinates(model: Thing) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.isJumping = true
@@ -97,6 +99,7 @@ struct DetailViewModel {
         }
     }
     
+    /// Stops MapView from updating while typing when run as LocationView opens from NavLink.
     func prepareIsJumpingVariable() {
         // Not sure exactly why this function is required, it seems as though if isJumping is true
         // as the LocationView opens, it causes isJumping not to work for the first title/location input

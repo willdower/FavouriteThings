@@ -11,15 +11,23 @@ import CoreLocation
 import SwiftUI
 import MapKit
 
+/// This struct is the UIView that holds the map from MapKit and is embedded in LocationView.
 struct MapView: UIViewRepresentable {
+    /// Reference to the model that this view is displaying the location for.
     @ObservedObject var model: Thing
     
+    /// Interacts with SwiftUI view to create the UIView on load
+    ///
+    /// - Note: This  function is only accessed automatically by the system.
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView(frame: .zero)
         mapView.delegate = model
         return mapView
     }
     
+    /// Interacts with SwiftUI view to update UIView when SwiftUI view refreshes
+    ///
+    /// - Note: This  function is only accessed automatically by the system.
     func updateUIView(_ mapView: MKMapView, context: Context) {
         // Called when the SwiftUI view the map is in is refreshed
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

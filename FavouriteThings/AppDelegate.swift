@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // This doesn't work in a CoreData scenario, however, as apparently all CoreData properties are @Published
     // The changing of isUpdating back to false then triggers a view update which causes the loop to start up again
     // This is a location accessible from everywhere for these variables.
+    /// Whether the coordinate variables are updating after map region changes (prevents loop).
     var isUpdating: Bool = false
+    /// True when map is jumping to a new location after name or coordinate input, acts the same as isUpdating but lasts longer (prevents loop).
     var isJumping: Bool = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
