@@ -53,13 +53,16 @@ struct DetailViewModel {
     /// Default text for button that updates the location name based on the coordinates
     let updateLocationFromCoordinates = "Update Location From Coordinates"
     
+    /// Allows the textfields for latitude and longitude to interpret the input string as a Double for saving to the model
+    let doubleFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 14
+        return formatter
+    }()
+    
     /// Gets the location coordinates from just a location name (geocoding)
     func getLocationFromName(locationName: String, model: Thing) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.isJumping = true
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(2000)) {
-            appDelegate.isJumping = false
-        }
         
         let geocoder = CLGeocoder()
         let position = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
@@ -72,22 +75,13 @@ struct DetailViewModel {
             let position = location.coordinate
             model.latitude = position.latitude
             model.longitude = position.longitude
-            model.latitudeString = "\(position.latitude)"
-            model.longitudeString = "\(position.longitude)"
         }
         return
     }
     
     /// Gets a location's name based on coordinates (reverse geo-code)
     func getLocationFromCoordinates(model: Thing) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.isJumping = true
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(2000)) {
-            appDelegate.isJumping = false
-        }
         
-        model.latitude = Double(model.latitudeString ?? "") ?? 0.0
-        model.longitude = Double(model.longitudeString ?? "") ?? 0.0
         let geocoder = CLGeocoder()
         let position = CLLocation(latitude: model.latitude, longitude: model.longitude)
         geocoder.reverseGeocodeLocation(position) { (placemarks, error) in
@@ -98,17 +92,4 @@ struct DetailViewModel {
             model.locationName = placemark.name ?? placemark.locality ?? placemark.subLocality ?? placemark.administrativeArea ?? placemark.country ?? self.unknownLabel
         }
     }
-    
-    /// Stops MapView from updating while typing when run as LocationView opens from NavLink.
-    func prepareIsJumpingVariable() {
-        // Not sure exactly why this function is required, it seems as though if isJumping is true
-        // as the LocationView opens, it causes isJumping not to work for the first title/location input
-        // until enter is pressed.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.isJumping = true
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(100)) {
-            appDelegate.isJumping = false
-        }
-    }
-    
 }

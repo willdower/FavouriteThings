@@ -12,6 +12,7 @@
 		3D2FC2BF246225F700038A99 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2FC2BE246225F700038A99 /* Keyboard.swift */; };
 		3D2FC2C124626B1900038A99 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2FC2C024626B1900038A99 /* MapView.swift */; };
 		3D2FC2C32462805200038A99 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2FC2C22462805200038A99 /* LocationView.swift */; };
+		3D2FC2C524639DB400038A99 /* CoordinateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2FC2C424639DB400038A99 /* CoordinateView.swift */; };
 		3D339B202458EF8B00EE3218 /* ThingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D339B1F2458EF8B00EE3218 /* ThingListViewModel.swift */; };
 		3D339B222458F1BD00EE3218 /* ThingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D339B212458F1BD00EE3218 /* ThingViewModel.swift */; };
 		3D592E82240F29C400AAF8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D592E81240F29C400AAF8CD /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		3D2FC2BE246225F700038A99 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		3D2FC2C024626B1900038A99 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3D2FC2C22462805200038A99 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		3D2FC2C424639DB400038A99 /* CoordinateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateView.swift; sourceTree = "<group>"; };
 		3D339B1F2458EF8B00EE3218 /* ThingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingListViewModel.swift; sourceTree = "<group>"; };
 		3D339B212458F1BD00EE3218 /* ThingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingViewModel.swift; sourceTree = "<group>"; };
 		3D592E7E240F29C400AAF8CD /* FavouriteThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 			children = (
 				3D1083432457FD6E00E16E60 /* DataModel.xcdatamodeld */,
 				3D592E81240F29C400AAF8CD /* AppDelegate.swift */,
+				3D2FC2C424639DB400038A99 /* CoordinateView.swift */,
 				3D592E83240F29C400AAF8CD /* SceneDelegate.swift */,
 				3DF67C15244FDBF4001EDA3B /* RowView.swift */,
 				3D592E85240F29C400AAF8CD /* MasterView.swift */,
@@ -341,6 +344,7 @@
 				3D7A7B8F24173ECD00CB1986 /* DetailViewModel.swift in Sources */,
 				3D2FC2C32462805200038A99 /* LocationView.swift in Sources */,
 				3D2FC2BF246225F700038A99 /* Keyboard.swift in Sources */,
+				3D2FC2C524639DB400038A99 /* CoordinateView.swift in Sources */,
 				3D9A89E22459528F0081FA6A /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

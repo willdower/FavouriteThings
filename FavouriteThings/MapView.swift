@@ -30,10 +30,13 @@ struct MapView: UIViewRepresentable {
     /// - Note: This  function is only accessed automatically by the system.
     func updateUIView(_ mapView: MKMapView, context: Context) {
         // Called when the SwiftUI view the map is in is refreshed
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        guard !appDelegate.isUpdating else { return }
-        print("mapView updating")
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude), latitudinalMeters: 10_000, longitudinalMeters: 10_000)
-        mapView.setRegion(region, animated: true)
+        let mapCentre = mapView.centerCoordinate
+        // This was the source of the double refresh which stopped user scrolling - when regionDidChangeAnimated was called, it would set the latitude and longitude to the map centre - but since the MapView observes changes to the model, it would call updateUIView and change them again
+        // The if statement stops this from happening if they are the same
+        // CLLocationDegrees is required here as the != will still be true without it as a Double of value num is not equal to a CLLocationDegrees of value num
+        if (mapCentre.latitude != CLLocationDegrees(exactly: model.latitude) || mapCentre.longitude != CLLocationDegrees(exactly: model.longitude)) {
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude), latitudinalMeters: 10_000, longitudinalMeters: 10_000)
+            mapView.setRegion(region, animated: true)
+        }
     }
 }

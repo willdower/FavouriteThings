@@ -99,21 +99,21 @@ extension Thing {
         }
     }
     /// Provides getter and setter for changing a thing's latitude
-    var latitudeStringField: String {
+    var latitudeField: Double {
         get {
-            self.latitudeString ?? ""
+            self.latitude
         }
         set {
-            self.latitudeString = newValue
+            self.latitude = newValue
         }
     }
     /// Provides getter and setter for changing a thing's longitude
-    var longitudeStringField: String {
+    var longitudeField: Double {
         get {
-            self.longitudeString ?? ""
+            self.longitude
         }
         set {
-            self.longitudeString = newValue
+            self.longitude = newValue
         }
     }
     /// Provides getter and setter for changing a thing's location name
@@ -229,23 +229,9 @@ extension Thing {
 /// Extension for dealing with mapView
 extension Thing: MKMapViewDelegate {
     
-    /// Called when the mapView that the thing is set as delegste for has its region changed (e.g. on a scroll or jump)
-    public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        guard !appDelegate.isUpdating else {
-            return
-        }
-        guard !appDelegate.isJumping else {
-            return
-        }
-        appDelegate.isUpdating = true
+    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let centre = mapView.centerCoordinate
         latitude = centre.latitude
         longitude = centre.longitude
-        latitudeString = "\(centre.latitude)"
-        longitudeString = "\(centre.longitude)"
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(250)) {
-            appDelegate.isUpdating = false
-        }
     }
 }
