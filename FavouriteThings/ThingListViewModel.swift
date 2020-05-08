@@ -51,8 +51,11 @@ extension ThingList {
         thingOne.locationLabel = "Location:"
         thingOne.locationNameLabel = "Location Name:"
         thingOne.latitudeLabel = "Latitude:"
+        thingOne.latitude = 40.712776
         thingOne.longitudeLabel = "Longitude:"
+        thingOne.longitude = -74.005974
         thingOne.notesLabel = detailViewModel.defaultNotesLabel
+        detailViewModel.getLocationFromCoordinates(model: thingOne)
         thingOne.thingList = thingList
         
         let thingTwo = Thing(context: context)
@@ -70,8 +73,11 @@ extension ThingList {
         thingTwo.locationLabel = "Location:"
         thingTwo.locationNameLabel = "Location Name:"
         thingTwo.latitudeLabel = "Latitude:"
+        thingTwo.latitude = 60.128162
         thingTwo.longitudeLabel = "Longitude:"
+        thingTwo.longitude = 18.643501
         thingTwo.notesLabel = detailViewModel.defaultNotesLabel
+        detailViewModel.getLocationFromCoordinates(model: thingTwo)
         thingTwo.thingList = thingList
         
         let thingThree = Thing(context: context)
@@ -89,8 +95,11 @@ extension ThingList {
         thingThree.locationLabel = "Location:"
         thingThree.locationNameLabel = "Location Name:"
         thingThree.latitudeLabel = "Latitude:"
+        thingThree.latitude = 55.953251
         thingThree.longitudeLabel = "Longitude:"
+        thingThree.longitude = -3.188267
         thingThree.notesLabel = detailViewModel.defaultNotesLabel
+        detailViewModel.getLocationFromCoordinates(model: thingThree)
         thingThree.thingList = thingList
         
         let thingFour = Thing(context: context)
@@ -108,8 +117,11 @@ extension ThingList {
         thingFour.locationLabel = "Location:"
         thingFour.locationNameLabel = "Location Name:"
         thingFour.latitudeLabel = "Latitude:"
+        thingFour.latitude = -28.016666
         thingFour.longitudeLabel = "Longitude:"
+        thingFour.longitude = 153.399994
         thingFour.notesLabel = detailViewModel.defaultNotesLabel
+        detailViewModel.getLocationFromCoordinates(model: thingFour)
         thingFour.thingList = thingList
         
         return thingList
