@@ -159,6 +159,11 @@ extension ThingList {
         }
     }
     
+    /// Moves things in the CoreData array so that order can be modified and saved.
+    ///
+    /// - Parameters:
+    ///     - indices: IndexSet of objects to be moved.
+    ///     - destination: The destination of the items being moved.
     func moveThings(indices: IndexSet, destination: Int) {
         /* Weird issue where an item could be moved up the order fine but moving down would take it down one too many
         // Fixed by subtracting 1 from destination position if item is moving down
