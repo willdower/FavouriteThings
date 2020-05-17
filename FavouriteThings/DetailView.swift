@@ -20,28 +20,33 @@ struct DetailView: View {
     /// This variable is a reference to the model object that the DetailView is displaying the details of.
     @ObservedObject var model: Thing
     
-    //Biggest element is the image, with a title, subtitle, three fields and notes below
+    //Biggest element is the image, with a url, title, subtitle, three fields and notes below
     var body: some View {
         return HStack {
             Spacer()
             VStack(alignment: .center) {
-                model.loadImage()
-                    .resizable()
-                    .shadow(radius: 10)
-                    .aspectRatio(contentMode: .fit)
                 Spacer()
-                    .frame(height: CGFloat(10))
-                HStack {
-                    Text(detailViewModel.urlLabel)
-                        .bold()
-                    TextField(detailViewModel.enterURLLabel, text: $model.urlField)
-                        .frame(width: 250, height: 15)
-                    Button(action: {
-                        self.model.getImage()
-                    }) {
-                        Text(detailViewModel.loadLabel)
+                ZStack {
+                    VStack {
+                        model.loadImage()
+                            .resizable()
+                            .shadow(radius: 10)
+                            .aspectRatio(contentMode: .fit)
+                        Spacer()
+                            .frame(height: CGFloat(20))
+                        HStack {
+                            Text(detailViewModel.urlLabel)
+                                .bold()
+                            TextField(detailViewModel.enterURLLabel, text: $model.urlField)
+                                .frame(width: 250, height: 15)
+                            Button(action: {
+                                self.model.getImage()
+                            }) {
+                                Text(detailViewModel.loadLabel)
+                            }
+                        }
                     }
-                }
+                }.frame(minWidth: 0, maxWidth: 380, minHeight: 400, maxHeight:400)
                 Spacer()
                     .frame(height: CGFloat(50))
                 VStack(alignment: .center) {
@@ -83,7 +88,7 @@ struct DetailView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 Spacer()
-                    .frame(height: keyboard.frame.size.height + 15)
+                    .frame(height: keyboard.frame.size.height*2 + 15)
             }.animation(.default)
         }
     }
