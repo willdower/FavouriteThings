@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 /// Extends ThingList and adds the ViewModel operations.
 extension ThingList {
@@ -125,5 +126,55 @@ extension ThingList {
         thingFour.thingList = thingList
         
         return thingList
+    }
+    
+    /// Creates a new Thing in the context and saves it to CoreData
+    ///
+    /// - Parameters:
+    ///     - context: The CoreData context for the Thing
+    ///     - detailViewModel: The DetailViewModel being used by the app.
+    static func createNewThing(context: NSManagedObjectContext, detailViewModel: DetailViewModel, thingList: FetchedResults<ThingList>) {
+        
+        let thing = Thing(context: context)
+        thing.id = UUID()
+        thing.title = detailViewModel.unknownLabel
+        thing.subtitle = detailViewModel.unknownLabel
+        thing.fieldOneLabel = detailViewModel.defaultFieldOneLabel
+        thing.fieldTwoLabel = detailViewModel.defaultFieldTwoLabel
+        thing.fieldThreeLabel = detailViewModel.defaultFieldThreeLabel
+        thing.locationLabel = detailViewModel.defaultLocationLabel
+        thing.locationNameLabel = detailViewModel.defaultLocationNameLabel
+        thing.latitudeLabel = detailViewModel.defaultLatitudeLabel
+        thing.longitudeLabel = detailViewModel.defaultLongitudeLabel
+        thing.notesLabel = detailViewModel.defaultNotesLabel
+        thing.thingList = thingList.first
+        do {
+            try context.save()
+            print("Saved new item to CoreData")
+        }
+        catch {
+            let cannotSaveError = error as NSError
+            print("Failed to save new item to CoreData")
+            print("\(cannotSaveError): \(cannotSaveError.userInfo)")
+        }
+    }
+    
+    func moveThings(indices: IndexSet, destination: Int) {
+        /* Weird issue where an item could be moved up the order fine but moving down would take it down one too many
+        // Fixed by subtracting 1 from destination position if item is moving down
+        // Solution is a little bit hacky but it works
+        // Can't tell if the problem is from the use of incorrect functions on my part or if it is related to the
+        // combined use of SwiftUI's onMove with non-SwiftUI NSMutableOrderedSet's moveObjects function */
+        let itemToMove = indices.first
+        if (itemToMove ?? 0 < destination) {
+            let exchange: NSMutableOrderedSet = self.things?.mutableCopy() as! NSMutableOrderedSet
+            exchange.moveObjects(at: indices, to: destination-1)
+            self.things = exchange
+        }
+        else {
+            let exchange: NSMutableOrderedSet = self.things?.mutableCopy() as! NSMutableOrderedSet
+            exchange.moveObjects(at: indices, to: destination)
+            self.things = exchange
+        }
     }
 }

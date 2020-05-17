@@ -33,28 +33,7 @@ struct MasterView: View {
                     trailing: Button(
                         action: {
                             withAnimation {
-                                let thing = Thing(context: self.context)
-                                thing.id = UUID()
-                                thing.title = self.detailViewModel.unknownLabel
-                                thing.subtitle = self.detailViewModel.unknownLabel
-                                thing.fieldOneLabel = self.detailViewModel.defaultFieldOneLabel
-                                thing.fieldTwoLabel = self.detailViewModel.defaultFieldTwoLabel
-                                thing.fieldThreeLabel = self.detailViewModel.defaultFieldThreeLabel
-                                thing.locationLabel = self.detailViewModel.defaultLocationLabel
-                                thing.locationNameLabel = self.detailViewModel.defaultLocationNameLabel
-                                thing.latitudeLabel = self.detailViewModel.defaultLatitudeLabel
-                                thing.longitudeLabel = self.detailViewModel.defaultLongitudeLabel
-                                thing.notesLabel = self.detailViewModel.defaultNotesLabel
-                                thing.thingList = self.thingList.first
-                                do {
-                                    try self.context.save()
-                                    print("Saved new item to CoreData")
-                                }
-                                catch {
-                                    let cannotSaveError = error as NSError
-                                    print("Failed to save new item to CoreData")
-                                    print("\(cannotSaveError): \(cannotSaveError.userInfo)")
-                                }
+                                ThingList.createNewThing(context: self.context, detailViewModel: self.detailViewModel, thingList: self.thingList)
                             }
                         }
                     ) {

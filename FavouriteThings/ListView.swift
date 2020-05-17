@@ -31,22 +31,7 @@ struct ListView: View {
             }.onDelete { indices in
                 indices.forEach { self.thingList.removeFromThings(at: $0) }
             }.onMove { (indices, destination) in
-                /* Weird issue where an item could be moved up the order fine but moving down would take it down one too many
-                // Fixed by subtracting 1 from destination position if item is moving down
-                // Solution is a little bit hacky but it works
-                // Can't tell if the problem is from the use of incorrect functions on my part or if it is related to the
-                // combined use of SwiftUI's onMove with non-SwiftUI NSMutableOrderedSet's moveObjects function */
-                let itemToMove = indices.first
-                if (itemToMove ?? 0 < destination) {
-                    let exchange: NSMutableOrderedSet = self.thingList.things?.mutableCopy() as! NSMutableOrderedSet
-                    exchange.moveObjects(at: indices, to: destination-1)
-                    self.thingList.things = exchange
-                }
-                else {
-                    let exchange: NSMutableOrderedSet = self.thingList.things?.mutableCopy() as! NSMutableOrderedSet
-                    exchange.moveObjects(at: indices, to: destination)
-                    self.thingList.things = exchange
-                }
+                self.thingList.moveThings(indices: indices, destination: destination)
             }
         }
     }
